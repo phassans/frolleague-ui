@@ -11,8 +11,10 @@ def HomePageView(request):
 
 
 def step2(request):
-    payload = {'userId': 'fhVq011uDC',
-               'linkedInURL': 'https://www.linkedin.com/in/shanth-kumar-harikrishnan-a8915118/'}
+    userid = request.POST['userid']
+    url = request.POST['url']
+    payload = {'userId': userid,
+               'linkedInURL': url}
     response = requests.post(
         'http://54.67.50.213:8080/v1/user/linkedin/url', data=json.dumps(payload))
     print(response.text)
@@ -33,13 +35,10 @@ def step4a(request):
 
 
 def step4b(request):
-    payload = {'userId': 'fhVq011uDC',
-               "companies": [
-                   {
-                       "companyName": "monday",
-                       "location": "MTV"
-                   }
-               ]}
+    userid = request.POST['userid']
+    companies = request.POST.get('companies', '')
+    payload = {'userId': userid,
+               "companies": companies}
     response = requests.post(
         'http://54.67.50.213:8080/v1/user/companies/update', data=json.dumps(payload))
     print(response.text)

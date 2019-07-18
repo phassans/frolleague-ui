@@ -24,9 +24,11 @@
 
     <!-- Jquery Js File -->
     <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script type="text/javascript"> window.CSRF_TOKEN = "{{ csrf_token }}"; </script>
 </head>
 <body>
-
+    {% csrf_token %}
+    
 <div class="side-panel">
     <div class="side-panel-top">
         <div class="logo">

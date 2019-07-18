@@ -16,6 +16,11 @@ $(document).ready(function() {
     );
     $("select").selectpicker();
   });
+
+  //constant userid
+  var userid = "fhVq011uDC";
+  var token = CSRF_TOKEN;
+
   $(".continue-button").click(function(e) {
     e.preventDefault();
     $(".error-box")
@@ -25,18 +30,34 @@ $(document).ready(function() {
       slideActive(2);
     } else if ($(this).attr("data-step") == 2) {
       $("#url").removeClass("error");
+      var linkedin_url = $("#url").val();
+      var valid = /^(ftp|http|https):\/\/[^ "]+$/.test(linkedin_url);
       if ($("#url").val() == "") {
         $("#url").addClass("error");
         $(".error-box")
           .empty()
           .fadeIn()
           .append("<li>Please enter url.</li>");
+      } else if (!valid) {
+        $("#url").addClass("error");
+        $(".error-box")
+          .empty()
+          .fadeIn()
+          .append("<li>Please enter a valid url.</li>");
       } else {
         //send request to server here
+        linkedin_url = encodeURIComponent(linkedin_url);
         var url = "/ajax/step2/";
-        console.log("fetching...");
+        console.log("inserted url...");
+
         $.ajax({
+          headers: { "X-CSRFToken": token },
+          type: "post",
           url: url,
+          data: {
+            userid: userid,
+            url: linkedin_url
+          },
           dataType: "json",
           success: function(data) {
             console.log(data);
@@ -62,6 +83,9 @@ $(document).ready(function() {
             data = JSON.parse(data);
             //console.log(data.companies);
             var i;
+            if (data.companies.length > 0) {
+              $(".work-stp").html("");
+            }
             for (i = 0; i < data.companies.length; ++i) {
               //console.log(data.companies[i].CompanyName);
               $(".work-stp").before(
@@ -100,8 +124,35 @@ $(document).ready(function() {
         //send request to server here
         var url = "/ajax/step4b/";
         console.log("updating...");
+        var company = $("input[data-name='company information']")
+          .map(function() {
+            return $(this).val();
+          })
+          .get();
+        console.log(company);
+        var locations = $("input[data-name='location']")
+          .map(function() {
+            return $(this).val();
+          })
+          .get();
+        console.log(locations);
+        //var obj = {};
+
+        var result = [];
+        company.forEach((key, i) =>
+          result.push({ CompanyName: company[i], Location: locations[i] })
+        );
+        console.log(result);
+        //result = { ...result };
+        console.log(result);
         $.ajax({
+          headers: { "X-CSRFToken": token },
+          type: "post",
           url: url,
+          data: {
+            userid: userid,
+            companies: result
+          },
           dataType: "json",
           success: function(data) {
             console.log(data);
