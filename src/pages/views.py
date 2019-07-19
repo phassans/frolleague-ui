@@ -24,7 +24,8 @@ def step2(request):
 
 
 def step4a(request):
-    payload = {'userId': 'fhVq011uDC',
+    userid = request.POST['userid']
+    payload = {'userId': userid,
                'company': True}
     response = requests.post(
         ' http://54.67.50.213:8080/v1/user/info', data=json.dumps(payload))
@@ -36,7 +37,10 @@ def step4a(request):
 
 def step4b(request):
     userid = request.POST['userid']
-    companies = request.POST.get('companies', '')
+    companies = request.POST['companies']
+    print("companies are")
+    companies = json.loads(companies)
+    print(companies)
     payload = {'userId': userid,
                "companies": companies}
     response = requests.post(
@@ -46,7 +50,8 @@ def step4b(request):
 
 
 def step5a(request):
-    payload = {'userId': 'fhVq011uDC',
+    userid = request.POST['userid']
+    payload = {'userId': userid,
                'school': True}
     response = requests.post(
         'http://54.67.50.213:8080/v1/user/info', data=json.dumps(payload))
@@ -57,16 +62,13 @@ def step5a(request):
 
 
 def step5b(request):
-    payload = {'userId': 'fhVq011uDC',
-               "schools": [
-                   {
-                       "schoolName": "stanford",
-                       "degree": "masters",
-                       "fieldOfStudy": "business",
-                       "fromYear": 2009,
-                       "toYear": 20011
-                   }
-               ]
+    userid = request.POST['userid']
+    schools = request.POST['schools']
+    print("schools are")
+    schools = json.loads(schools)
+    print(schools)
+    payload = {'userId': userid,
+               "schools": schools
                }
     response = requests.post(
         'http://54.67.50.213:8080/v1/user/schools/update', data=json.dumps(payload))
@@ -75,7 +77,8 @@ def step5b(request):
 
 
 def step6a(request):
-    payload = {'userId': 'fhVq011uDC'}
+    userid = request.POST['userid']
+    payload = {'userId': userid}
     response = requests.post(
         'http://54.67.50.213:8080/v1/user/groups', data=json.dumps(payload))
     print(response.text)
@@ -85,9 +88,16 @@ def step6a(request):
 
 
 def step6b(request):
-    payload = {'userId': 'fhVq011uDC',
-               "group": "eBusinessApplicationSolutions",
-               "status": False
+    userid = request.POST['userid']
+    group = request.POST['group']
+    status = request.POST['status']
+    if status == "true":
+        status = True
+    else:
+        status = False
+    payload = {'userId': userid,
+               "group": group,
+               "status": status
 
                }
     response = requests.post(

@@ -6,7 +6,7 @@ $(document).ready(function() {
     e.preventDefault();
     console.log("done");
     $(".work-container").append(
-      '<div class="white-box mb-35 mt-30 work-box"> <div class="white-box-remove"><i class="fas fa-times"></i></div><div class="form-group form-group-inline mb-30"><label>Company</label><input type="text" data-name="company information"></div> <div class="form-group form-group-inline"><label>Location</label><input type="text" data-name="location"><button class="edit-button grey-button"><i class="fas fa-pencil-alt"></i></button></div> <h5 class="sub-heading text-center mt-5px form-sub">Please enter location</h5> </div>'
+      '<div class="white-box mb-35 mt-30 work-box"> <div class="white-box-remove"><i class="fas fa-times"></i></div><div class="form-group form-group-inline mb-30"><label>Company</label><input type="text" data-name="company information"></div> <div class="form-group form-group-inline"><label>Location</label><input type="text" data-name="location"></div> <h5 class="sub-heading text-center mt-5px form-sub">Please enter location</h5> </div>'
     );
   });
   $(".add-education").click(function(e) {
@@ -76,7 +76,12 @@ $(document).ready(function() {
         var url = "/ajax/step4a/";
         console.log("fetching work info...");
         $.ajax({
+          headers: { "X-CSRFToken": token },
+          type: "post",
           url: url,
+          data: {
+            userid: userid
+          },
           dataType: "json",
           success: function(data) {
             console.log(data);
@@ -93,7 +98,7 @@ $(document).ready(function() {
                   data.companies[i].CompanyName +
                   '" ></div><div class="form-group form-group-inline"><label>Location</label><input type="text" data-name="location" value="' +
                   data.companies[i].Location +
-                  '"><button class="edit-button grey-button"><i class="fas fa-pencil-alt"></i></button></div><h5 class="sub-heading text-center mt-5px form-sub">Please enter location</h5></div></div>'
+                  '"></div><h5 class="sub-heading text-center mt-5px form-sub">Please enter location</h5></div></div>'
               );
             }
           },
@@ -140,18 +145,19 @@ $(document).ready(function() {
 
         var result = [];
         company.forEach((key, i) =>
-          result.push({ CompanyName: company[i], Location: locations[i] })
+          result.push({ companyName: company[i], location: locations[i] })
         );
         console.log(result);
         //result = { ...result };
-        console.log(result);
+        // Object.assign({}, result);
+        // console.log(result);
         $.ajax({
           headers: { "X-CSRFToken": token },
           type: "post",
           url: url,
           data: {
             userid: userid,
-            companies: result
+            companies: JSON.stringify(result)
           },
           dataType: "json",
           success: function(data) {
@@ -165,16 +171,25 @@ $(document).ready(function() {
         var url = "/ajax/step5a/";
         console.log("fetching education...");
         $.ajax({
+          headers: { "X-CSRFToken": token },
+          type: "post",
           url: url,
+          data: {
+            userid: userid
+          },
           dataType: "json",
           success: function(data) {
             console.log(data);
             data = JSON.parse(data);
             //console.log(data.companies);
+            if (data.schools.length > 0) {
+              $(".add-work").html("");
+              $(".education-container").remove();
+            }
             var i;
             for (i = 0; i < data.schools.length; ++i) {
               //console.log(data.companies[i].CompanyName);
-              $(".education-container").before(
+              $(".add-work").append(
                 '<div class="education-container">' +
                   '<div class="white-box mb-35 mt-30 mb-30 eduction-box">' +
                   '<div class="white-box-remove"><i class="fas fa-times"></i></div>' +
@@ -196,7 +211,18 @@ $(document).ready(function() {
                   data.schools[i].FieldOfStudy +
                   '"></div>' +
                   '<h5 class="sub-heading text-center mt-5px mb-30 form-sub-change">As per your degree certificate.</h5>' +
-                  '<div class="form-group form-group-inline form-group-inline-change"><label>Year</label><div class="dropdown bootstrap-select"><select class="selectpicker" title=" " data-name="year" tabindex="-98"><option class="bs-title-option" value="' +
+                  '<div class="form-group form-group-inline form-group-inline-change"><label>From year</label><div class="dropdown bootstrap-select"><select class="selectpicker" title=" " data-name="year" tabindex="-98"><option class="bs-title-option" value="' +
+                  data.schools[i].FromYear +
+                  '">' +
+                  data.schools[i].FromYear +
+                  "</option>" +
+                  "<option>Example</option>" +
+                  "<option>Example</option>" +
+                  "<option>Example</option>" +
+                  '</select><button type="button" class="btn dropdown-toggle btn-light bs-placeholder" data-toggle="dropdown" role="button" title="" aria-expanded="false"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner"> </div></div> </div></button><div class="dropdown-menu" role="combobox" x-placement="bottom-start" style="max-height: 628.672px; overflow: hidden; min-height: 0px; position: absolute; transform: translate3d(0px, 25px, 0px); top: 0px; left: 0px; will-change: transform;"><div class="inner show" role="listbox" aria-expanded="false" tabindex="-1" style="max-height: 610.672px; overflow-y: auto; min-height: 0px;"><ul class="dropdown-menu inner show"><li><a role="option" class="dropdown-item" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">' +
+                  data.schools[i].FromYear +
+                  '</span></a></li><li><a role="option" class="dropdown-item" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">Example</span></a></li><li><a role="option" class="dropdown-item" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">Example</span></a></li></ul></div></div></div></div>' +
+                  '<div class="form-group mt-30 form-group-inline form-group-inline-change"><label>To year</label><div class="dropdown bootstrap-select"><select class="selectpicker" title=" " data-name="toyear" tabindex="-98"><option class="bs-title-option" value="' +
                   data.schools[i].ToYear +
                   '">' +
                   data.schools[i].ToYear +
@@ -210,6 +236,11 @@ $(document).ready(function() {
                   "</div>" +
                   "</div>"
               );
+
+              //$("select").selectpicker();
+              // $('select[data-name="degree"]').val(1);
+              // $(".selectpicker").selectpicker("refresh");
+              // $(".selectpicker").selectpicker("val", [1]);
             }
           },
           error: function(error) {
@@ -258,10 +289,64 @@ $(document).ready(function() {
       });
       if (val == true) {
         // update slide 5 data verify education
+        //get all school names
+        var schools = $("input[data-name='school']")
+          .map(function() {
+            return $(this).val();
+          })
+          .get();
+        console.log(schools);
+        //getting all field of study
+        var stream = $("input[data-name='stream']")
+          .map(function() {
+            return $(this).val();
+          })
+          .get();
+        console.log(stream);
+        //get all degree
+        var degree = $("select[data-name='degree']")
+          .map(function() {
+            return $(this).val();
+          })
+          .get();
+        console.log(degree);
+
+        var fromyear = $("select[data-name='year']")
+          .map(function() {
+            return parseInt($(this).val());
+          })
+          .get();
+        console.log(fromyear);
+
+        var toyear = $("select[data-name='toyear']")
+          .map(function() {
+            return parseInt($(this).val());
+          })
+          .get();
+        console.log(toyear);
+
+        var result = [];
+        schools.forEach((key, i) =>
+          result.push({
+            schoolName: schools[i],
+            degree: degree[i],
+            fieldOfStudy: stream[i],
+            FromYear: fromyear[i],
+            ToYear: toyear[i]
+          })
+        );
+        console.log(result);
+
         var url = "/ajax/step5b/";
-        console.log("updating...");
+        console.log("updating education...");
         $.ajax({
+          headers: { "X-CSRFToken": token },
+          type: "post",
           url: url,
+          data: {
+            userid: userid,
+            schools: JSON.stringify(result)
+          },
           dataType: "json",
           success: function(data) {
             console.log(data);
@@ -275,12 +360,20 @@ $(document).ready(function() {
         var url = "/ajax/step6a/";
         console.log("fetching user groups...");
         $.ajax({
+          headers: { "X-CSRFToken": token },
+          type: "post",
           url: url,
+          data: {
+            userid: userid
+          },
           dataType: "json",
           success: function(data) {
             console.log(data);
             data = JSON.parse(data);
             //console.log(data.companies);
+            if (data.groups.companyGroups.length > 0) {
+              $(".cha-list").html("");
+            }
             var i;
             for (i = 0; i < data.groups.companyGroups.length; ++i) {
               //console.log(data.companies[i].CompanyName);
@@ -294,7 +387,9 @@ $(document).ready(function() {
               $(".cha-list").append(
                 '<li><div class="chanel-list-left">' +
                   data.groups.companyGroups[i].group +
-                  '</div><div class="chanel-list-right"><div class="custom-checkbox"><input type="checkbox" checked="' +
+                  '</div><div class="chanel-list-right"><div class="custom-checkbox"><input type="checkbox" class="chanel-checkbox" data-group="' +
+                  data.groups.companyGroups[i].group +
+                  '" checked="' +
                   checked +
                   '"' +
                   'id="chk0' +
@@ -304,7 +399,9 @@ $(document).ready(function() {
                   '"></label></div></div></li>'
               );
             }
-
+            if (data.groups.schoolGroups.length > 0) {
+              $(".cha-list-school").html("");
+            }
             var i;
             for (i = 0; i < data.groups.schoolGroups.length; ++i) {
               //console.log(data.companies[i].CompanyName);
@@ -318,9 +415,15 @@ $(document).ready(function() {
               $(".cha-list-school").append(
                 '<li><div class="chanel-list-left">' +
                   data.groups.schoolGroups[i].group +
-                  '</div><div class="chanel-list-right"><div class="custom-checkbox"><input type="checkbox" checked="' +
+                  '</div><div class="chanel-list-right"><div class="custom-checkbox"><input type="checkbox" data-group="' +
+                  data.groups.schoolGroups[i].group +
+                  '" class="chanel-checkbox" checked="' +
                   checked +
-                  '" id="chk3"><label for="chk3"></label></div></div></li>'
+                  '" id="chk3' +
+                  i +
+                  '"><label for="chk3' +
+                  i +
+                  '"></label></div></div></li>'
               );
             }
           },
@@ -331,6 +434,38 @@ $(document).ready(function() {
         slideActive(6);
       }
     }
+  });
+  $(document).on("change", ".chanel-checkbox", function(event) {
+    console.log("checkbox status changed");
+    var status = false;
+    var group = $(this).attr("data-group");
+    console.log(group);
+    if (this.checked) {
+      console.log("true");
+      status = true;
+    } else {
+      console.log("false");
+      status = false;
+    }
+    var url = "/ajax/step6b/";
+    console.log("updating user groups...");
+    $.ajax({
+      headers: { "X-CSRFToken": token },
+      type: "post",
+      url: url,
+      data: {
+        userid: userid,
+        group: group,
+        status: status
+      },
+      dataType: "json",
+      success: function(data) {
+        console.log(data);
+      },
+      error: function(error) {
+        console.log(error);
+      }
+    });
   });
   $(".steps-list li.click").click(function(e) {
     e.preventDefault();
@@ -472,22 +607,55 @@ $(document).ready(function() {
     $(".error-box")
       .hide()
       .empty();
-    slideActive(4);
-  });
-  $("#linkedin-form").submit(function(event) {
-    // update User Groups ()
-    var url = "/ajax/step6b/";
-    console.log("updating user groups...");
+    var url = "/ajax/step4a/";
+    console.log("fetching work info...");
     $.ajax({
+      headers: { "X-CSRFToken": token },
+      type: "post",
       url: url,
+      data: {
+        userid: userid
+      },
       dataType: "json",
       success: function(data) {
         console.log(data);
+        data = JSON.parse(data);
+        //console.log(data.companies);
+        var i;
+        if (data.companies.length > 0) {
+          $(".work-stp").html("");
+        }
+        for (i = 0; i < data.companies.length; ++i) {
+          //console.log(data.companies[i].CompanyName);
+          $(".work-stp").before(
+            '<div class="work-container"><div class="white-box mb-35 mt-30 mb-30 work-box"><div class="white-box-remove"><i class="fas fa-times"></i></div><div class="form-group form-group-inline mb-30"><label>Company</label><input type="text" data-name="company information" value="' +
+              data.companies[i].CompanyName +
+              '" ></div><div class="form-group form-group-inline"><label>Location</label><input type="text" data-name="location" value="' +
+              data.companies[i].Location +
+              '"></div><h5 class="sub-heading text-center mt-5px form-sub">Please enter location</h5></div></div>'
+          );
+        }
       },
       error: function(error) {
         console.log(error);
       }
     });
+    slideActive(4);
+  });
+  $("#linkedin-form").submit(function(event) {
+    // update User Groups ()
+    // var url = "/ajax/step6b/";
+    // console.log("updating user groups...");
+    // $.ajax({
+    //   url: url,
+    //   dataType: "json",
+    //   success: function(data) {
+    //     console.log(data);
+    //   },
+    //   error: function(error) {
+    //     console.log(error);
+    //   }
+    // });
     alert("Form Submitted");
     event.preventDefault();
   });
