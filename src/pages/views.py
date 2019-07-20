@@ -10,13 +10,18 @@ def HomePageView(request):
     })
 
 
+def getServerURL():
+    return "http://localhost:8080"
+    # return "http://54.67.50.213:8080"
+
+
 def step2(request):
     userid = request.POST['userid']
     url = request.POST['url']
     payload = {'userId': userid,
                'linkedInURL': url}
     response = requests.post(
-        'http://54.67.50.213:8080/v1/user/linkedin/url', data=json.dumps(payload))
+        getServerURL() + '/v1/user/linkedin/url', data=json.dumps(payload))
     print(response.text)
     return JsonResponse(response.text, safe=False)
 
@@ -28,7 +33,7 @@ def step4a(request):
     payload = {'userId': userid,
                'company': True}
     response = requests.post(
-        ' http://54.67.50.213:8080/v1/user/info', data=json.dumps(payload))
+        getServerURL() + '/v1/user/info', data=json.dumps(payload))
     print(response.text)
     return JsonResponse(response.text, safe=False)
 
@@ -44,7 +49,7 @@ def step4b(request):
     payload = {'userId': userid,
                "companies": companies}
     response = requests.post(
-        'http://54.67.50.213:8080/v1/user/companies/update', data=json.dumps(payload))
+        getServerURL() + '/v1/user/companies/update', data=json.dumps(payload))
     print(response.text)
     return JsonResponse(response.text, safe=False)
 
@@ -54,7 +59,7 @@ def step5a(request):
     payload = {'userId': userid,
                'school': True}
     response = requests.post(
-        'http://54.67.50.213:8080/v1/user/info', data=json.dumps(payload))
+        getServerURL() + '/v1/user/info', data=json.dumps(payload))
     print(response.text)
     return JsonResponse(response.text, safe=False)
 
@@ -71,7 +76,7 @@ def step5b(request):
                "schools": schools
                }
     response = requests.post(
-        'http://54.67.50.213:8080/v1/user/schools/update', data=json.dumps(payload))
+        getServerURL() + '/v1/user/schools/update', data=json.dumps(payload))
     print(response.text)
     return JsonResponse(response.text, safe=False)
 
@@ -80,7 +85,7 @@ def step6a(request):
     userid = request.POST['userid']
     payload = {'userId': userid}
     response = requests.post(
-        'http://54.67.50.213:8080/v1/user/groups', data=json.dumps(payload))
+        getServerURL() + '/v1/user/groups', data=json.dumps(payload))
     print(response.text)
     return JsonResponse(response.text, safe=False)
 
@@ -101,6 +106,6 @@ def step6b(request):
 
                }
     response = requests.post(
-        'http://54.67.50.213:8080/v1/user/group/toggle', data=json.dumps(payload))
+        getServerURL() + '/v1/user/group/toggle', data=json.dumps(payload))
     print(response.text)
     return JsonResponse(response.text, safe=False)
