@@ -5,16 +5,19 @@ $(document).ready(function() {
   $(".add-work").click(function(e) {
     e.preventDefault();
     console.log("done");
-    $(".work-container").append(
+    $(".work-daba").append(
       '<div class="white-box mb-35 mt-30 work-box"> <div class="white-box-remove"><i class="fas fa-times"></i></div><div class="form-group form-group-inline mb-30"><label>Company</label><input type="text" data-name="company information"></div> <div class="form-group form-group-inline"><label>Location</label><input type="text" data-name="location"></div> <h5 class="sub-heading text-center mt-5px form-sub">Please enter location</h5> </div>'
     );
   });
   $(".add-education").click(function(e) {
     e.preventDefault();
-    $(".education-container").append(
-      '<div class="white-box mb-35 mt-30  eduction-box">  <div class="white-box-remove"><i class="fas fa-times"></i></div><div class="form-group form-group-inline mb-30 form-group-inline-change"><label>School</label><input type="text" data-name="school"></div> <div class="form-group form-group-inline mb-30 form-group-inline-change"><label>Degree</label><select class="selectpicker" title=" " id="test" data-name="degree"> <option>Example</option> <option>Example</option> <option>Example</option> </select> </div> <div class="form-group form-group-inline form-group-inline-change"><label>Stream</label><input type="text" data-name="stream"></div> <h5 class="sub-heading text-center mt-5px mb-30 form-sub-change">As per your degree certificate.</h5> <div class="form-group form-group-inline form-group-inline-change"><label>Year</label><select class="selectpicker" title=" " data-name="year"> <option>Example</option> <option>Example</option> <option>Example</option> </select></div> </div>'
+    $(".education-container").prepend(
+      '<div class="white-box mb-35 mt-30  eduction-box">  <div class="white-box-remove"><i class="fas fa-times"></i></div><div class="form-group form-group-inline mb-30 form-group-inline-change"><label>School</label><input type="text" data-name="school"></div> <div class="form-group form-group-inline mb-30 form-group-inline-change"><label>Degree</label><select class="" style="margin-left:15px;width:74%;position: relative;top: 5px; " title=" " id="test" data-name="degree"> <option>Example</option> <option>Example</option> <option>Example</option> </select> </div> <div class="form-group form-group-inline form-group-inline-change"><label>Stream</label><input type="text" data-name="stream"></div> <h5 class="sub-heading text-center mt-5px mb-30 form-sub-change">As per your degree certificate.</h5> <div class="form-group form-group-inline form-group-inline-change"><label>Year</label><select class="" title=" " data-name="year"> <option>Example</option> <option>Example</option> <option>Example</option> </select></div>' +
+        "</div>" +
+        '<div class="form-group mt-30 form-group-inline form-group-inline-change"><label>To year</label><select style="min-height: 40px;margin-left:15px;width:72%;position: relative;top: 5px; " class="" title=" " data-name="toyear" tabindex="-98"><option>Example</option><option>Example</option><option>Example</option>' +
+        "</select></div>"
     );
-    $("select").selectpicker();
+    //$("select").selectpicker();
   });
 
   //constant userid
@@ -93,7 +96,7 @@ $(document).ready(function() {
             }
             for (i = 0; i < data.companies.length; ++i) {
               //console.log(data.companies[i].CompanyName);
-              $(".work-stp").before(
+              $(".work-stp").append(
                 '<div class="work-container"><div class="white-box mb-35 mt-30 mb-30 work-box"><div class="white-box-remove"><i class="fas fa-times"></i></div><div class="form-group form-group-inline mb-30"><label>Company</label><input type="text" data-name="company information" value="' +
                   data.companies[i].CompanyName +
                   '" ></div><div class="form-group form-group-inline"><label>Location</label><input type="text" data-name="location" value="' +
@@ -183,35 +186,32 @@ $(document).ready(function() {
             data = JSON.parse(data);
             //console.log(data.companies);
             if (data.schools.length > 0) {
-              $(".add-work").html("");
-              $(".education-container").remove();
+              //$(".add-work").html("");
+              $(".education-container").html("");
             }
             var i;
             for (i = 0; i < data.schools.length; ++i) {
               //console.log(data.companies[i].CompanyName);
-              $(".add-work").append(
-                '<div class="education-container">' +
-                  '<div class="white-box mb-35 mt-30 mb-30 eduction-box">' +
+              $(".education-container").append(
+                '<div class="white-box mb-35 mt-30 mb-30 eduction-box">' +
                   '<div class="white-box-remove"><i class="fas fa-times"></i></div>' +
                   '<div class="form-group form-group-inline mb-30 form-group-inline-change"><label>School</label><input type="text" data-name="school" value="' +
                   data.schools[i].SchoolName +
                   '"></div>' +
-                  '<div class="form-group form-group-inline mb-30 form-group-inline-change"><label>Degree</label><div class="dropdown bootstrap-select"><select class="selectpicker" title=" " id="test" data-name="degree" tabindex="-98">' +
+                  '<div class="form-group form-group-inline mb-30 form-group-inline-change"><label>Degree</label><select style="min-height: 40px;margin-left:15px;width:72%;position: relative;top: 5px; " class="form-control" title=" " id="test" data-name="degree" tabindex="-98">' +
                   "<option>" +
                   data.schools[i].Degree +
                   '</option>" ' +
                   "<option>Example</option>" +
                   "<option>Example</option>" +
                   "<option>Example</option>" +
-                  '</select><button type="button" class="btn dropdown-toggle btn-light bs-placeholder" data-toggle="dropdown" role="button" data-id="test" title="" aria-expanded="false"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner"> </div></div> </div></button><div class="dropdown-menu" role="combobox" x-placement="bottom-start" style="max-height: 762.953px; overflow: hidden; min-height: 0px; position: absolute; transform: translate3d(0px, 25px, 0px); top: 0px; left: 0px; will-change: transform;"><div class="inner show" role="listbox" aria-expanded="false" tabindex="-1" style="max-height: 744.953px; overflow-y: auto; min-height: 0px;"><ul class="dropdown-menu inner show"><li><a role="option" class="dropdown-item" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">' +
-                  data.schools[i].Degree +
-                  '</span></a></li><li><a role="option" class="dropdown-item" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">Example</span></a></li><li><a role="option" class="dropdown-item" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">Example</span></a></li><li><a role="option" class="dropdown-item" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">Example</span></a></li></ul></div></div></div>' +
+                  "</select>" +
                   "</div>" +
                   '<div class="form-group form-group-inline form-group-inline-change"><label>Stream</label><input type="text" data-name="stream" value="' +
                   data.schools[i].FieldOfStudy +
                   '"></div>' +
                   '<h5 class="sub-heading text-center mt-5px mb-30 form-sub-change">As per your degree certificate.</h5>' +
-                  '<div class="form-group form-group-inline form-group-inline-change"><label>From year</label><div class="dropdown bootstrap-select"><select class="selectpicker" title=" " data-name="year" tabindex="-98"><option class="bs-title-option" value="' +
+                  '<div class="form-group form-group-inline form-group-inline-change"><label>From year</label><select style="min-height: 40px;margin-left:15px;width:72%;position: relative;top: 5px; " class="" title=" " data-name="year" tabindex="-98"><option class="bs-title-option" value="' +
                   data.schools[i].FromYear +
                   '">' +
                   data.schools[i].FromYear +
@@ -219,10 +219,8 @@ $(document).ready(function() {
                   "<option>Example</option>" +
                   "<option>Example</option>" +
                   "<option>Example</option>" +
-                  '</select><button type="button" class="btn dropdown-toggle btn-light bs-placeholder" data-toggle="dropdown" role="button" title="" aria-expanded="false"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner"> </div></div> </div></button><div class="dropdown-menu" role="combobox" x-placement="bottom-start" style="max-height: 628.672px; overflow: hidden; min-height: 0px; position: absolute; transform: translate3d(0px, 25px, 0px); top: 0px; left: 0px; will-change: transform;"><div class="inner show" role="listbox" aria-expanded="false" tabindex="-1" style="max-height: 610.672px; overflow-y: auto; min-height: 0px;"><ul class="dropdown-menu inner show"><li><a role="option" class="dropdown-item" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">' +
-                  data.schools[i].FromYear +
-                  '</span></a></li><li><a role="option" class="dropdown-item" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">Example</span></a></li><li><a role="option" class="dropdown-item" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">Example</span></a></li></ul></div></div></div></div>' +
-                  '<div class="form-group mt-30 form-group-inline form-group-inline-change"><label>To year</label><div class="dropdown bootstrap-select"><select class="selectpicker" title=" " data-name="toyear" tabindex="-98"><option class="bs-title-option" value="' +
+                  "</select></div>" +
+                  '<div class="form-group mt-30 form-group-inline form-group-inline-change"><label>To year</label><select style="min-height: 40px;margin-left:15px;width:72%;position: relative;top: 5px; " class="" title=" " data-name="toyear" tabindex="-98"><option class="bs-title-option" value="' +
                   data.schools[i].ToYear +
                   '">' +
                   data.schools[i].ToYear +
@@ -230,10 +228,7 @@ $(document).ready(function() {
                   "<option>Example</option>" +
                   "<option>Example</option>" +
                   "<option>Example</option>" +
-                  '</select><button type="button" class="btn dropdown-toggle btn-light bs-placeholder" data-toggle="dropdown" role="button" title="" aria-expanded="false"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner"> </div></div> </div></button><div class="dropdown-menu" role="combobox" x-placement="bottom-start" style="max-height: 628.672px; overflow: hidden; min-height: 0px; position: absolute; transform: translate3d(0px, 25px, 0px); top: 0px; left: 0px; will-change: transform;"><div class="inner show" role="listbox" aria-expanded="false" tabindex="-1" style="max-height: 610.672px; overflow-y: auto; min-height: 0px;"><ul class="dropdown-menu inner show"><li><a role="option" class="dropdown-item" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">' +
-                  data.schools[i].ToYear +
-                  '</span></a></li><li><a role="option" class="dropdown-item" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">Example</span></a></li><li><a role="option" class="dropdown-item" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">Example</span></a></li></ul></div></div></div></div>' +
-                  "</div>" +
+                  "</select></div>" +
                   "</div>"
               );
 
