@@ -5,17 +5,37 @@ $(document).ready(function() {
   $(".add-work").click(function(e) {
     e.preventDefault();
     console.log("done");
-    $(".work-daba").append(
+    $(".work-container").prepend(
       '<div class="white-box mb-35 mt-30 work-box"> <div class="white-box-remove"><i class="fas fa-times"></i></div><div class="form-group form-group-inline mb-30"><label>Company</label><input type="text" data-name="company information"></div> <div class="form-group form-group-inline"><label>Location</label><input type="text" data-name="location"></div> <h5 class="sub-heading text-center mt-5px form-sub">Please enter location</h5> </div>'
     );
   });
   $(".add-education").click(function(e) {
     e.preventDefault();
     $(".education-container").prepend(
-      '<div class="white-box mb-35 mt-30  eduction-box">  <div class="white-box-remove"><i class="fas fa-times"></i></div><div class="form-group form-group-inline mb-30 form-group-inline-change"><label>School</label><input type="text" data-name="school"></div> <div class="form-group form-group-inline mb-30 form-group-inline-change"><label>Degree</label><select class="" style="margin-left:15px;width:74%;position: relative;top: 5px; " title=" " id="test" data-name="degree"> <option>Example</option> <option>Example</option> <option>Example</option> </select> </div> <div class="form-group form-group-inline form-group-inline-change"><label>Stream</label><input type="text" data-name="stream"></div> <h5 class="sub-heading text-center mt-5px mb-30 form-sub-change">As per your degree certificate.</h5> <div class="form-group form-group-inline form-group-inline-change"><label>Year</label><select class="" title=" " data-name="year"> <option>Example</option> <option>Example</option> <option>Example</option> </select></div>' +
+      '<div class="white-box mb-35 mt-30 mb-30 eduction-box">' +
+        '<div class="white-box-remove"><i class="fas fa-times"></i></div>' +
+        '<div class="form-group form-group-inline mb-30 form-group-inline-change"><label>School</label><input type="text" data-name="school"' +
+        '"></div>' +
+        '<div class="form-group form-group-inline mb-30 form-group-inline-change"><label>Degree</label><select style="min-height: 40px;margin-left:15px;width:72%;position: relative;top: 5px; " class="form-control" title=" " id="test" data-name="degree" tabindex="-98">' +
+        "<option>Example</option>" +
+        "<option>Example</option>" +
+        "<option>Example</option>" +
+        "</select>" +
         "</div>" +
-        '<div class="form-group mt-30 form-group-inline form-group-inline-change"><label>To year</label><select style="min-height: 40px;margin-left:15px;width:72%;position: relative;top: 5px; " class="" title=" " data-name="toyear" tabindex="-98"><option>Example</option><option>Example</option><option>Example</option>' +
-        "</select></div>"
+        '<div class="form-group form-group-inline form-group-inline-change"><label>Stream</label><input type="text" data-name="stream"' +
+        '"></div>' +
+        '<h5 class="sub-heading text-center mt-5px mb-30 form-sub-change">As per your degree certificate.</h5>' +
+        '<div class="form-group form-group-inline form-group-inline-change"><label>From year</label><select style="min-height: 40px;margin-left:15px;width:72%;position: relative;top: 5px; " class="" title=" " data-name="year" tabindex="-98">' +
+        "<option>Example</option>" +
+        "<option>Example</option>" +
+        "<option>Example</option>" +
+        "</select></div>" +
+        '<div class="form-group mt-30 form-group-inline form-group-inline-change"><label>To year</label><select style="min-height: 40px;margin-left:15px;width:72%;position: relative;top: 5px; " class="" title=" " data-name="toyear" tabindex="-98">' +
+        "<option>Example</option>" +
+        "<option>Example</option>" +
+        "<option>Example</option>" +
+        "</select></div>" +
+        "</div>"
     );
     //$("select").selectpicker();
   });
@@ -91,17 +111,17 @@ $(document).ready(function() {
             data = JSON.parse(data);
             //console.log(data.companies);
             var i;
-            if (data.companies.length > 0) {
-              $(".work-stp").html("");
-            }
+
+            $(".work-container").html("");
+
             for (i = 0; i < data.companies.length; ++i) {
               //console.log(data.companies[i].CompanyName);
-              $(".work-stp").append(
-                '<div class="work-container"><div class="white-box mb-35 mt-30 mb-30 work-box"><div class="white-box-remove"><i class="fas fa-times"></i></div><div class="form-group form-group-inline mb-30"><label>Company</label><input type="text" data-name="company information" value="' +
+              $(".work-container").append(
+                '<div class="white-box mb-35 mt-30 mb-30 work-box"><div class="white-box-remove"><i class="fas fa-times"></i></div><div class="form-group form-group-inline mb-30"><label>Company</label><input type="text" data-name="company information" value="' +
                   data.companies[i].CompanyName +
                   '" ></div><div class="form-group form-group-inline"><label>Location</label><input type="text" data-name="location" value="' +
                   data.companies[i].Location +
-                  '"></div><h5 class="sub-heading text-center mt-5px form-sub">Please enter location</h5></div></div>'
+                  '"></div><h5 class="sub-heading text-center mt-5px form-sub">Please enter location</h5></div>'
               );
             }
           },
@@ -185,10 +205,8 @@ $(document).ready(function() {
             console.log(data);
             data = JSON.parse(data);
             //console.log(data.companies);
-            if (data.schools.length > 0) {
-              //$(".add-work").html("");
-              $(".education-container").html("");
-            }
+            $(".education-container").html("");
+
             var i;
             for (i = 0; i < data.schools.length; ++i) {
               //console.log(data.companies[i].CompanyName);
@@ -231,11 +249,6 @@ $(document).ready(function() {
                   "</select></div>" +
                   "</div>"
               );
-
-              //$("select").selectpicker();
-              // $('select[data-name="degree"]').val(1);
-              // $(".selectpicker").selectpicker("refresh");
-              // $(".selectpicker").selectpicker("val", [1]);
             }
           },
           error: function(error) {
@@ -366,16 +379,16 @@ $(document).ready(function() {
             console.log(data);
             data = JSON.parse(data);
             //console.log(data.companies);
-            if (data.groups.companyGroups.length > 0) {
-              $(".cha-list").html("");
-            }
+            $(".cha-list").html("");
+
             var i;
             for (i = 0; i < data.groups.companyGroups.length; ++i) {
               //console.log(data.companies[i].CompanyName);
               var checked = "checked";
               console.log(data.groups.companyGroups[i].status);
-              if (data.groups.companyGroups[i].status == "true") {
+              if (data.groups.companyGroups[i].status == true) {
                 checked = "checked";
+                console.log("checked true");
               } else {
                 checked = "";
               }
@@ -384,26 +397,26 @@ $(document).ready(function() {
                   data.groups.companyGroups[i].group +
                   '</div><div class="chanel-list-right"><div class="custom-checkbox"><input type="checkbox" class="chanel-checkbox" data-group="' +
                   data.groups.companyGroups[i].group +
-                  '" checked="' +
-                  checked +
                   '"' +
                   'id="chk0' +
                   i +
-                  '"><label for="chk0' +
+                  '"' +
+                  checked +
+                  '><label for="chk0' +
                   i +
                   '"></label></div></div></li>'
               );
             }
-            if (data.groups.schoolGroups.length > 0) {
-              $(".cha-list-school").html("");
-            }
+            $(".cha-list-school").html("");
+
             var i;
             for (i = 0; i < data.groups.schoolGroups.length; ++i) {
               //console.log(data.companies[i].CompanyName);
               var checked = "checked";
               console.log(data.groups.schoolGroups[i].status);
-              if (data.groups.schoolGroups[i].status == "true") {
+              if (data.groups.schoolGroups[i].status == true) {
                 checked = "checked";
+                console.log("checked true");
               } else {
                 checked = "";
               }
@@ -412,11 +425,12 @@ $(document).ready(function() {
                   data.groups.schoolGroups[i].group +
                   '</div><div class="chanel-list-right"><div class="custom-checkbox"><input type="checkbox" data-group="' +
                   data.groups.schoolGroups[i].group +
-                  '" class="chanel-checkbox" checked="' +
-                  checked +
-                  '" id="chk3' +
+                  '" class="chanel-checkbox"' +
+                  'id="chk3' +
                   i +
-                  '"><label for="chk3' +
+                  '"' +
+                  checked +
+                  '><label for="chk3' +
                   i +
                   '"></label></div></div></li>'
               );
@@ -617,17 +631,15 @@ $(document).ready(function() {
         data = JSON.parse(data);
         //console.log(data.companies);
         var i;
-        if (data.companies.length > 0) {
-          $(".work-stp").html("");
-        }
+        $(".work-container").html("");
         for (i = 0; i < data.companies.length; ++i) {
           //console.log(data.companies[i].CompanyName);
-          $(".work-stp").before(
-            '<div class="work-container"><div class="white-box mb-35 mt-30 mb-30 work-box"><div class="white-box-remove"><i class="fas fa-times"></i></div><div class="form-group form-group-inline mb-30"><label>Company</label><input type="text" data-name="company information" value="' +
+          $(".work-container").append(
+            '<div class="white-box mb-35 mt-30 mb-30 work-box"><div class="white-box-remove"><i class="fas fa-times"></i></div><div class="form-group form-group-inline mb-30"><label>Company</label><input type="text" data-name="company information" value="' +
               data.companies[i].CompanyName +
               '" ></div><div class="form-group form-group-inline"><label>Location</label><input type="text" data-name="location" value="' +
               data.companies[i].Location +
-              '"></div><h5 class="sub-heading text-center mt-5px form-sub">Please enter location</h5></div></div>'
+              '"></div><h5 class="sub-heading text-center mt-5px form-sub">Please enter location</h5></div>'
           );
         }
       },

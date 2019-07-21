@@ -11,8 +11,8 @@ def HomePageView(request):
 
 
 def getServerURL():
-    return "http://localhost:8080"
-    # return "http://54.67.50.213:8080"
+    # return "http://localhost:8080"
+    return "http://54.67.50.213:8080"
 
 
 def step2(request):
