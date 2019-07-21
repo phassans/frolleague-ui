@@ -9,6 +9,8 @@ $(document).ready(function() {
       '<div class="white-box mb-35 mt-30 work-box"> <div class="white-box-remove"><i class="fas fa-times"></i></div><div class="form-group form-group-inline mb-30"><label>Company</label><input type="text" data-name="company information"></div> <div class="form-group form-group-inline"><label>Location</label><input type="text" data-name="location"></div> <h5 class="sub-heading text-center mt-5px form-sub">Please enter location</h5> </div>'
     );
   });
+
+  // add education
   $(".add-education").click(function(e) {
     e.preventDefault();
     $(".education-container").prepend(
@@ -17,23 +19,23 @@ $(document).ready(function() {
         '<div class="form-group form-group-inline mb-30 form-group-inline-change"><label>School</label><input type="text" data-name="school"' +
         '"></div>' +
         '<div class="form-group form-group-inline mb-30 form-group-inline-change"><label>Degree</label><select style="min-height: 40px;margin-left:15px;width:72%;position: relative;top: 5px; " class="form-control" title=" " id="test" data-name="degree" tabindex="-98">' +
-        "<option>Example</option>" +
-        "<option>Example</option>" +
-        "<option>Example</option>" +
+        "<option>Undergraduate</option>" +
+        "<option>Bachelors</option>" +
+        "<option>Masters</option>" +
         "</select>" +
         "</div>" +
         '<div class="form-group form-group-inline form-group-inline-change"><label>Stream</label><input type="text" data-name="stream"' +
         '"></div>' +
         '<h5 class="sub-heading text-center mt-5px mb-30 form-sub-change">As per your degree certificate.</h5>' +
         '<div class="form-group form-group-inline form-group-inline-change"><label>From year</label><select style="min-height: 40px;margin-left:15px;width:72%;position: relative;top: 5px; " class="" title=" " data-name="year" tabindex="-98">' +
-        "<option>Example</option>" +
-        "<option>Example</option>" +
-        "<option>Example</option>" +
+        "<option>2009</option>" +
+        "<option>2010</option>" +
+        "<option>2011</option>" +
         "</select></div>" +
         '<div class="form-group mt-30 form-group-inline form-group-inline-change"><label>To year</label><select style="min-height: 40px;margin-left:15px;width:72%;position: relative;top: 5px; " class="" title=" " data-name="toyear" tabindex="-98">' +
-        "<option>Example</option>" +
-        "<option>Example</option>" +
-        "<option>Example</option>" +
+        "<option>2012</option>" +
+        "<option>2013</option>" +
+        "<option>2014</option>" +
         "</select></div>" +
         "</div>"
     );
@@ -44,6 +46,7 @@ $(document).ready(function() {
   var userid = "fhVq011uDC";
   var token = CSRF_TOKEN;
 
+  // on click continue button
   $(".continue-button").click(function(e) {
     e.preventDefault();
     $(".error-box")
@@ -358,6 +361,7 @@ $(document).ready(function() {
           dataType: "json",
           success: function(data) {
             console.log(data);
+            step6b();
           },
           error: function(error) {
             console.log(error);
@@ -365,85 +369,91 @@ $(document).ready(function() {
         });
 
         // fetch User Groups (fetch user groups, when page loads)
-        var url = "/ajax/step6a/";
-        console.log("fetching user groups...");
-        $.ajax({
-          headers: { "X-CSRFToken": token },
-          type: "post",
-          url: url,
-          data: {
-            userid: userid
-          },
-          dataType: "json",
-          success: function(data) {
-            console.log(data);
-            data = JSON.parse(data);
-            //console.log(data.companies);
-            $(".cha-list").html("");
 
-            var i;
-            for (i = 0; i < data.groups.companyGroups.length; ++i) {
-              //console.log(data.companies[i].CompanyName);
-              var checked = "checked";
-              console.log(data.groups.companyGroups[i].status);
-              if (data.groups.companyGroups[i].status == true) {
-                checked = "checked";
-                console.log("checked true");
-              } else {
-                checked = "";
-              }
-              $(".cha-list").append(
-                '<li><div class="chanel-list-left">' +
-                  data.groups.companyGroups[i].group +
-                  '</div><div class="chanel-list-right"><div class="custom-checkbox"><input type="checkbox" class="chanel-checkbox" data-group="' +
-                  data.groups.companyGroups[i].group +
-                  '"' +
-                  'id="chk0' +
-                  i +
-                  '"' +
-                  checked +
-                  '><label for="chk0' +
-                  i +
-                  '"></label></div></div></li>'
-              );
-            }
-            $(".cha-list-school").html("");
-
-            var i;
-            for (i = 0; i < data.groups.schoolGroups.length; ++i) {
-              //console.log(data.companies[i].CompanyName);
-              var checked = "checked";
-              console.log(data.groups.schoolGroups[i].status);
-              if (data.groups.schoolGroups[i].status == true) {
-                checked = "checked";
-                console.log("checked true");
-              } else {
-                checked = "";
-              }
-              $(".cha-list-school").append(
-                '<li><div class="chanel-list-left">' +
-                  data.groups.schoolGroups[i].group +
-                  '</div><div class="chanel-list-right"><div class="custom-checkbox"><input type="checkbox" data-group="' +
-                  data.groups.schoolGroups[i].group +
-                  '" class="chanel-checkbox"' +
-                  'id="chk3' +
-                  i +
-                  '"' +
-                  checked +
-                  '><label for="chk3' +
-                  i +
-                  '"></label></div></div></li>'
-              );
-            }
-          },
-          error: function(error) {
-            console.log(error);
-          }
-        });
         slideActive(6);
       }
     }
   });
+
+  function step6b() {
+    var url = "/ajax/step6a/";
+    console.log("fetching user groups...");
+    $.ajax({
+      headers: { "X-CSRFToken": token },
+      type: "post",
+      url: url,
+      data: {
+        userid: userid
+      },
+      dataType: "json",
+      success: function(data) {
+        console.log(data);
+        data = JSON.parse(data);
+        //console.log(data.companies);
+        $(".cha-list").html("");
+
+        var i;
+        for (i = 0; i < data.groups.companyGroups.length; ++i) {
+          //console.log(data.companies[i].CompanyName);
+          var checked = "checked";
+          console.log(data.groups.companyGroups[i].status);
+          if (data.groups.companyGroups[i].status == true) {
+            checked = "checked";
+            console.log("checked true");
+          } else {
+            checked = "";
+          }
+          $(".cha-list").append(
+            '<li><div class="chanel-list-left">' +
+              data.groups.companyGroups[i].group +
+              '</div><div class="chanel-list-right"><div class="custom-checkbox"><input type="checkbox" class="chanel-checkbox" data-group="' +
+              data.groups.companyGroups[i].group +
+              '"' +
+              'id="chk0' +
+              i +
+              '"' +
+              checked +
+              '><label for="chk0' +
+              i +
+              '"></label></div></div></li>'
+          );
+        }
+        $(".cha-list-school").html("");
+
+        var i;
+        for (i = 0; i < data.groups.schoolGroups.length; ++i) {
+          //console.log(data.companies[i].CompanyName);
+          var checked = "checked";
+          console.log(data.groups.schoolGroups[i].status);
+          if (data.groups.schoolGroups[i].status == true) {
+            checked = "checked";
+            console.log("checked true");
+          } else {
+            checked = "";
+          }
+          $(".cha-list-school").append(
+            '<li><div class="chanel-list-left">' +
+              data.groups.schoolGroups[i].group +
+              '</div><div class="chanel-list-right"><div class="custom-checkbox"><input type="checkbox" data-group="' +
+              data.groups.schoolGroups[i].group +
+              '" class="chanel-checkbox"' +
+              'id="chk3' +
+              i +
+              '"' +
+              checked +
+              '><label for="chk3' +
+              i +
+              '"></label></div></div></li>'
+          );
+        }
+      },
+      error: function(error) {
+        console.log(error);
+      }
+    });
+  }
+
+  // on-off change
   $(document).on("change", ".chanel-checkbox", function(event) {
     console.log("checkbox status changed");
     var status = false;
@@ -476,6 +486,8 @@ $(document).ready(function() {
       }
     });
   });
+
+  // header click
   $(".steps-list li.click").click(function(e) {
     e.preventDefault();
     $(".error").removeClass("error");
@@ -488,6 +500,8 @@ $(document).ready(function() {
       pagecheck(cur, next);
     }
   });
+
+  // back button
   $(".back-button").click(function(e) {
     e.preventDefault();
     $(".error").removeClass("error");
@@ -498,6 +512,8 @@ $(document).ready(function() {
     var next = $(this).attr("data-step") - 1;
     pagecheck(cur, next);
   });
+
+  // pagecheck (validation)
   function pagecheck(cur, next) {
     if (cur == 1) {
       slideActive(next);
@@ -579,6 +595,8 @@ $(document).ready(function() {
       slideActive(next);
     }
   }
+
+  // slideActive
   function slideActive(e) {
     $(".steps-one:visible").fadeOut(function() {
       $(".steps-one[data-step=" + e + "]")
@@ -610,6 +628,8 @@ $(document).ready(function() {
       $(".steps-list li:nth-of-type(" + e + ")").addClass("visited");
     });
   }
+
+  // skip button
   $(".skip-button").click(function(e) {
     e.preventDefault();
     $(".steps-list li:nth-of-type(3)").addClass("visited");
