@@ -10,6 +10,11 @@ def HomePageView(request):
     })
 
 
+def DashboardPageView(request):
+    return render(request, 'pages/dashboard.html', {
+    })
+
+
 def getServerURL():
     # return "http://localhost:8080"
     return "http://54.67.50.213:8080"
