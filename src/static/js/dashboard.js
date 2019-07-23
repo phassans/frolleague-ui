@@ -16,6 +16,178 @@ $(document).ready(function() {
       .fadeIn();
     getData(step);
   });
+
+  $(document).on("click", ".post-work", function() {
+    var val = true;
+    $(".work-box .error").removeClass("error");
+    $(".work-box input").each(function() {
+      if ($(this).val() == "") {
+        val = false;
+        $(this).addClass("error");
+        var a =
+          $(this)
+            .parents(".work-box")
+            .index() + 1;
+        var b = $(this).attr("data-name");
+        $(".error-box")
+          .fadeIn()
+          .append("<li>Please enter " + b + " in section " + a + ".</li>");
+      }
+    });
+    if (val == true) {
+      //send request to server here
+      var url = "/ajax/step4b/";
+      console.log("updating...");
+      var company = $("input[data-name='company information']")
+        .map(function() {
+          return $(this).val();
+        })
+        .get();
+      console.log(company);
+      var locations = $("input[data-name='location']")
+        .map(function() {
+          return $(this).val();
+        })
+        .get();
+      console.log(locations);
+      //var obj = {};
+
+      var result = [];
+      company.forEach((key, i) =>
+        result.push({ companyName: company[i], location: locations[i] })
+      );
+      console.log(result);
+      //result = { ...result };
+      // Object.assign({}, result);
+      // console.log(result);
+      $.ajax({
+        headers: { "X-CSRFToken": token },
+        type: "post",
+        url: url,
+        data: {
+          userid: userid,
+          companies: JSON.stringify(result)
+        },
+        dataType: "json",
+        success: function(data) {
+          console.log(data);
+        },
+        error: function(error) {
+          console.log(error);
+        }
+      });
+    }
+  });
+  $(document).on("click", ".post-education", function() {
+    var val = true;
+    $(".eduction-box .error").removeClass("error");
+    $(".eduction-box input").each(function() {
+      if ($(this).val() == "") {
+        val = false;
+        $(this).addClass("error");
+        var a =
+          $(this)
+            .parents(".eduction-box")
+            .index() + 1;
+        var b = $(this).attr("data-name");
+        $(".error-box")
+          .fadeIn()
+          .append("<li>Please enter " + b + " in section " + a + ".</li>");
+      }
+    });
+    $(".eduction-box select").each(function() {
+      if (
+        $(this)
+          .children("option:selected")
+          .val() == ""
+      ) {
+        val = false;
+        $(this)
+          .parents(".bootstrap-select")
+          .find("button")
+          .addClass("error");
+        var a =
+          $(this)
+            .parents(".eduction-box")
+            .index() + 1;
+        var b = $(this).attr("data-name");
+        $(".error-box")
+          .fadeIn()
+          .append("<li>Please select " + b + " in section " + a + ".</li>");
+      }
+    });
+    if (val == true) {
+      // update slide 5 data verify education
+      //get all school names
+      var schools = $("input[data-name='school']")
+        .map(function() {
+          return $(this).val();
+        })
+        .get();
+      //console.log(schools);
+      //getting all field of study
+      var stream = $("input[data-name='stream']")
+        .map(function() {
+          return $(this).val();
+        })
+        .get();
+      // console.log(stream);
+      //get all degree
+      var degree = $("select[data-name='degree']")
+        .map(function() {
+          return $(this).val();
+        })
+        .get();
+      // console.log(degree);
+
+      var fromyear = $("select[data-name='year']")
+        .map(function() {
+          return parseInt($(this).val());
+        })
+        .get();
+      //console.log(fromyear);
+
+      var toyear = $("select[data-name='toyear']")
+        .map(function() {
+          return parseInt($(this).val());
+        })
+        .get();
+      // console.log(toyear);
+
+      var result = [];
+      schools.forEach((key, i) =>
+        result.push({
+          schoolName: schools[i],
+          degree: degree[i],
+          fieldOfStudy: stream[i],
+          FromYear: fromyear[i],
+          ToYear: toyear[i]
+        })
+      );
+      console.log(result);
+
+      var url = "/ajax/step5b/";
+      console.log("updating education...");
+      $.ajax({
+        headers: { "X-CSRFToken": token },
+        type: "post",
+        url: url,
+        data: {
+          userid: userid,
+          schools: JSON.stringify(result)
+        },
+        dataType: "json",
+        success: function(data) {
+          console.log(data);
+          // step6b();
+        },
+        error: function(error) {
+          console.log(error);
+        }
+      });
+    }
+  });
+  $(document).on("click", ".post-education", function() {});
 });
 
 //show step related data.
@@ -96,6 +268,7 @@ function getEducation() {
     }
   });
 }
+
 function getWork() {
   token = CSRF_TOKEN;
   userid = "fhVq011uDC";
