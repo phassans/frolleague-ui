@@ -15,6 +15,18 @@ def DashboardPageView(request):
     })
 
 
+def CookieView(request, user, token):
+    token = str(token)
+    user = str(user)
+
+    payload = {'cookie': token,
+               'userName': user}
+    response = requests.post(
+        getServerURL() + '/v1/linkedin/cookie', data=json.dumps(payload))
+    print(response.text)
+    return JsonResponse(response.text, safe=False)
+
+
 def getServerURL():
     # return "http://localhost:8080"
     return "http://54.67.50.213:8080"
