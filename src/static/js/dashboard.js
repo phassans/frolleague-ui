@@ -3,6 +3,19 @@ $(document).ready(function() {
     Constants
   */
 
+$(document).on("click", ".post-work", function()
+{
+	$('div .text-left h5').css({'display': 'block'});
+	$('div .text-left h5').hide(3000);
+	console.log('done');
+});
+
+$('.panel-menu li').click(function(e)
+{
+  $('.panel-menu li').removeClass("actives");
+    $(this).addClass("actives");
+});
+
   var userid = "fhVq011uDC";
   var token = CSRF_TOKEN;
 
@@ -297,7 +310,7 @@ function getWork() {
             data.companies[i].CompanyName +
             '" ></div><div class="form-group form-group-inline"><label>Location</label><input type="text" data-name="location" value="' +
             data.companies[i].Location +
-            '"></div><h5 class="sub-heading text-center mt-5px form-sub">Please enter location</h5></div>'
+            '"></div></div>'
         );
       }
     },

@@ -1,10 +1,12 @@
 from django.urls import path
 
-from .views import HomePageView, DashboardPageView, step2, step4a, step4b, step5a, step5b, step6a, step6b, CookieView
+from .views import HomePageView, LandingPageView, ProfilePageView, DashboardPageView, step2, step4a, step4b, step5a, step5b, step6a, step6b, CookieView
 
 urlpatterns = [
     path('', HomePageView, name='home'),
+    path('landing/', LandingPageView, name='landing'),
     path('dashboard/', DashboardPageView, name='home'),
+    path('profile/', ProfilePageView, name='profile'),
     path('cookie/<str:user>/<str:token>', CookieView),
     path('ajax/step2/', step2, name='step2'),
     path('ajax/step4a/', step4a, name='step4a'),

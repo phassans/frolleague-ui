@@ -26,27 +26,31 @@
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script type="text/javascript"> window.CSRF_TOKEN = "{{ csrf_token }}"; </script>
 </head>
-<body>
+<body >
     {% csrf_token %}
     
-<div class="side-panel">
+<div class="side-panel" style="width: 110px;">
     <div class="side-panel-top">
         <div class="logo">
-            <a href="#"><img src="{% static 'images/logo.png' %}"/></a>
+            <a href="#"><img src="{% static 'images/landing_logo.png' %}"/></a>
         </div>
         <ul class="panel-menu">
            
         </ul>
     </div>
-    <div class="side-panel-bottom">
-        <a href="#" class="my-account">
-            <i class="fas fa-user"></i>
-            <span>My Account</span>
+    
+    <div class="side-panel-bottom dropdown">
+        <a href="#" class="my-account dropbtn">
+            <i class="fas fa-user"></i><span>My Account</span>
         </a>
+        <div class="dropdown-content" style="left: 110px;">
+            <a href="#">Profile</a>
+            <a href="#">Logout</a>
+        </div>
     </div>
 </div>
 
-<div class="main-page">
+<div class="main-page" style="margin-left: 110px;">
     <div class="main-page-inner">
         <ul class="steps-list">
             <li class="active">
@@ -68,13 +72,13 @@
                 06 Your Channels
             </li>
         </ul>
-        <form id="linkedin-form">
+        <!-- <form id="linkedin-form" action="/dashboard/" method="POST"> -->
             <div class="steps-container">
                 <div class="steps-one active" data-step="1">
                     <div class="steps-one-left">
                         <h3 class="mb-0">Welcome</h3>
                         <button class="grey-button login-button mt-35 mb-35 continue-button" data-step="1"><i class="fab fa-linkedin-in"></i><span>LOGIN WITH LINKEDIN</span></button>
-                        <p class="default-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                        <p class="default-text bg_white">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                     </div>
                     <div class="steps-one-right">
                         <div class="row mb-30 sm-mb-0">
@@ -149,13 +153,14 @@
                 <div class="steps-one" data-step="4">
                     <div class="steps-one-left ">
                         <h4 class="mb-0">Please verify your work info</h4>
+                        
                         <div class="mt-35 work-daba text-right"><button id="add-work"  class="add-work transparent-button"><i class="fas fa-plus"></i>Add Work</button></div>
                         <div class="work-container work-stp">
                             <div class="white-box mb-35 mt-30 mb-30 work-box">
                                 <div class="white-box-remove"><i class="fas fa-times"></i></div>
                                 <div class="form-group form-group-inline mb-30"><label>Company</label><input type="text" data-name="company information"></div>
                                 <div class="form-group form-group-inline"><label>Location</label><input type="text" data-name="location"></div>
-                                <h5 class="sub-heading text-center mt-5px form-sub">Please enter location</h5>
+                                
                             </div>
                         </div>
                         <div class="text-right mt-30">
@@ -179,7 +184,7 @@
                                 <div class="white-box-remove"><i class="fas fa-times"></i></div>
                                 <div class="form-group form-group-inline mb-30 form-group-inline-change"><label>School</label><input type="text" data-name="school"></div>
                                 <div class="form-group form-group-inline mb-30 form-group-inline-change"><label>Degree</label>
-                                <select class="" style="margin-left:15px;width:74%;position: relative;top: 5px; " title=" " id="test" data-name="degree">
+                                <select class="" style="" title=" " id="test" data-name="degree">
                                     <option>Example</option>
                                     <option>Example</option>
                                     <option>Example</option>
@@ -187,7 +192,7 @@
                                 </div>
                                 <div class="form-group form-group-inline form-group-inline-change"><label>Stream</label><input type="text" data-name="stream"></div>
                                 <h5 class="sub-heading text-center mt-5px mb-30 form-sub-change">As per your degree certificate.</h5>
-                                <div class="form-group form-group-inline form-group-inline-change"><label>from Year</label><select class="" style="min-height: 40px;margin-left:15px;width:72%;position: relative;top: 5px; " title=" " data-name="year">
+                                <div class="form-group form-group-inline form-group-inline-change"><label>from Year</label><select class="" style="top: -8px;" title=" " data-name="year">
                                     <option value="2019">2019</option>
   <option value="2018">2018</option>
   <option value="2017">2017</option>
@@ -309,7 +314,7 @@
   <option value="1901">1901</option>
   <option value="1900">1900</option>
                                 </select></div>
-                                <div class="form-group form-group-inline form-group-inline-change"><label>to Year</label><select class="" style="min-height: 40px;margin-left:15px;width:72%;position: relative;top: 5px; " title=" " data-name="toyear">
+                                <div class="form-group form-group-inline form-group-inline-change" style="margin-top: 3px;"><label>to Year</label><select class="" style="top: -8px;" title=" " data-name="toyear">
                                     <option value="2019">2019</option>
   <option value="2018">2018</option>
   <option value="2017">2017</option>
@@ -514,7 +519,7 @@
                             </div>
                         </div>
                         <div class="text-right">
-                            <button class="grey-button float-left back-button" data-step="6">Back</button>  <button class="grey-button submit-button">Get Started</button>
+                            <button class="grey-button float-left back-button" data-step="6">Back</button>  <a href="/dashboard"><button class="grey-button">Get Started</button></a>
                         </div>
                     </div>
                     <div class="steps-one-right">
@@ -522,7 +527,7 @@
                     </div>
                 </div>
             </div>
-        </form>
+        <!-- </form> -->
 
     </div>
 </div>

@@ -10,6 +10,16 @@ def HomePageView(request):
     })
 
 
+def LandingPageView(request):
+    return render(request, 'pages/landing.html', {
+    })
+
+
+def ProfilePageView(request):
+    return render(request, 'pages/profile.html', {
+    })
+
+
 def DashboardPageView(request):
     return render(request, 'pages/dashboard.html', {
     })
