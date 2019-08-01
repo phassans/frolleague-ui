@@ -9,7 +9,7 @@ body {
     width: 100%;
     z-index: 9;
     height: 64px;
-    top: 35px;
+    top: 13px;
 }
 .img-responsive {
     width: 100%;
@@ -39,20 +39,19 @@ body {
 
 }
 .banner_text {
-
-    margin-top: 200px;
+    margin-top: 120px;
     padding-left: 0;
-    padding-right: 88px;
-
+    padding-right: 60px;
 }
 .nav-link {
     color: #383c47;
     text-transform: uppercase;
 }
 .banner {
-
     background: #cfdee7;
-
+}
+li.nav-item:hover {
+    background-color: #234e611c;
 }
 
 .story {
@@ -71,7 +70,7 @@ body {
 }
 .story p {
   text-align: justify;
-  padding: 0 13px 0 0;
+  padding: 0 0px 0 0;
 
 }
 
@@ -97,7 +96,6 @@ body {
     float: left;
     padding: 0 10px 0 0;
     color: #fff;
-
 }
 .site i {
 
@@ -105,12 +103,10 @@ body {
 
 }
 .footer {
-
     float: left;
     width: 100%;
     background: #303946;
     padding: 32px 0;
-
 }
 .site p {
 
@@ -163,26 +159,32 @@ body {
     width: 100%;
     border-top: 2px solid #4b5561;
    margin-top: 13px;
-
-padding-top: 32px;
-
+    padding-top: 25px;
 }
 .footer_botm p {
-
     margin: 0;
     font-size: 17px;
-
+    padding: 0px 30px;
 }
 .footer_botm a{
-
     color: #999;
-
 }
-.pad-left-0 {
+/* .pad-left-0 {
 	padding-left:0px;
-}
-.pad-right-0 {
+} */
+/* .pad-right-0 {
 padding-right:0px !important;
+} */
+@media  (max-width: 991px) and (min-width: 869px) {
+	.index {
+        position: relative;
+        width: 100%;
+        z-index: 9;
+        height: auto;
+        top: 9px;
+        background: #fff;
+        padding: 0 0 7px 0;
+    }
 }
 @media  (max-width: 868px) and (min-width: 739px) {
 	.main-nav {
@@ -197,6 +199,7 @@ padding-right:0px !important;
     float: left;
     color: #383c47;
     font-size: 23px;
+    margin-top: 40px;
 }
 .banner_text p {
     color: #696d70;
@@ -232,8 +235,10 @@ padding-right:0px !important;
     position: absolute;
     top: 0;
     right: 0;
-
 }
+/* .about{
+    padding: 60px 0;
+} */
 }
 @media  (max-width: 1980px) and (min-width: 1370px) {
 	.container {
@@ -249,9 +254,9 @@ a.nav-link {
     font-size: 21px;
 }
 .banner_text {
-    margin-top: 250px;
-    padding-left: 25px;
-    padding-right: 108px;
+    margin-top: 180px;
+    padding-left: 35px;
+    padding-right: 192px;
 }
 .banner_text p {
     font-size: 21px;
@@ -324,7 +329,6 @@ a.nav-link {
 	padding-bottom: 0px;
 }
 .index {
-
     position: relative;
     width: 100%;
     z-index: 9;
@@ -335,12 +339,10 @@ a.nav-link {
 
 }
 #navbarSupportedContent {
-
-    top: 31px;
+    top: 45px;
     position: relative;
     text-align: right;
     padding-bottom: 20px;
-
 }
 .banner_text {
     margin-top: 5px !important;
@@ -348,4 +350,9 @@ a.nav-link {
     padding-right: 30px !important;
 	padding-bottom: 0px;
 }
+}
+
+@media  (max-width: 575px) and (min-width: 300px) {
+header.index .head-content .container .row .float-left {
+    text-align: center !important;
 }

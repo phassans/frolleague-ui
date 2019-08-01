@@ -15,7 +15,7 @@
     <title>Frolleague | Profile</title>
 
     <!-- Bootstrap Css file -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <!-- <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" /> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!-- font file -->
@@ -26,9 +26,55 @@
     <!-- Jquery Js File -->
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script type="text/javascript"> window.CSRF_TOKEN = "{{ csrf_token }}"; </script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
 </head>
 <body>
     {% csrf_token %}
+
+    <nav class="navbar navbar-inverse nav-up">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>                        
+                </button>
+                    
+                <a class="navbar-brand" href="">
+                    <img src="{% static 'images/landing_logo.png' %}" alt="logo" width="155px" style="margin: -4px 0px 0px 10px;">
+                </a>
+            </div>
+            
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav panel-menu">
+                    <li class="actives">
+                        <a href="/dashboard/" class="dashboard-link" data-step="1">Dashboard</a>
+                    </li>
+                    <li><a href="#" class="dashboard-link" data-step="6">Channels</a></li>
+                    <li><a href="#" class="dashboard-link" data-step="4">Work</a></li>
+                    <li><a href="#" class="dashboard-link" data-step="5">Education</a></li>
+                    <li><a href="#" class="dashboard-link" data-step="2">Refresh</a></li>
+                </ul>
+            
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/profile/" style="margin-top: 0px;">
+                            <span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Profile
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" style="margin-top: 0px;">
+                            <span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     
 <div class="side-panel">
 
@@ -56,7 +102,7 @@
         </ul>
     </div>
 
-    <div class="side-panel-bottom dropdown">
+    <div class="side-panel-bottom dropdown"style="width: 100%;position: absolute;bottom: 0px !important;">
         <a href="#" class="my-account dropbtn">
            <i class="fas fa-user"></i><span>My Account</span>
         </a>
@@ -68,7 +114,7 @@
 
 </div>
 
-<div class="main-page" style="margin-top: -80px;">
+<div class="main-page">
     <div class="main-page-inner">
         
         <!-- <form id="linkedin-form"> -->

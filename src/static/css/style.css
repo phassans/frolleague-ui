@@ -3,7 +3,7 @@
 /* Basic css */
 body {
     font-family: "Lato", sans-serif !important;
-    background-color: #f8f7f7;
+    background-color: #f8f7f7 !important;
 }
 
 a,
@@ -63,10 +63,14 @@ ul.panel-menu li a:hover {
 .panel-menu li a {
     color: rgba(255, 255, 255, 0.68);
     transition: 0.15s color;
-    padding: 15px 125px 15px 22px;
+    padding: 9px 70px 9px 22px;
 }
 .actives {
     background-color: #3d7a9426;
+    color:#fff !important;
+}
+.actives-color{
+    color:#fff !important;
 }
 
 .my-account {
@@ -132,16 +136,18 @@ ul.panel-menu li a:hover {
 .main-page {
     margin-left: 160px;
     padding: 5%;
+    padding-top: 0px;
 }
 .steps-list {
     display: inline-flex;
     padding: 0;
     margin: 0;
+    width: 90%;
 }
 .steps-list li {
     list-style: none;
     width: 100%;
-    min-width: 150px;
+    min-width: 20%;
     color: #dddddd;
     margin-bottom: 30px;
     position: relative;
@@ -366,12 +372,13 @@ ul.panel-menu li a:hover {
     margin-right: 5px;
 }
 .white-box {
-    padding: 10px 35px 10px 15px;
+    padding: 10px 15px 10px 15px;
     -webkit-box-shadow: 0px 0px 28px 0px rgba(0, 0, 0, 0.22);
     -moz-box-shadow: 0px 0px 28px 0px rgba(0, 0, 0, 0.22);
     box-shadow: 0px 0px 28px 0px rgba(0, 0, 0, 0.22);
     border-radius: 4px;
     position: relative;
+    background-color: #ffffff;
 }
 .white-box-remove {
     position: absolute;
@@ -449,7 +456,7 @@ ul.panel-menu li a:hover {
     transition: 0.15s left;
 }
 .custom-checkbox input:checked ~ label {
-    background-color: #707070;
+    background-color: #003f5a;
 }
 .custom-checkbox input:checked ~ label:before {
     left: 24px;
@@ -461,7 +468,7 @@ ul.panel-menu li a:hover {
     list-style: none;
     display: flex;
     justify-content: space-between;
-    padding: 15px 0;
+    padding: 10px 0;
     border-bottom: #ddd solid 1px;
     align-items: center;
 }
@@ -666,6 +673,12 @@ ul.panel-menu li a:hover {
     .my-account i {
         font-size: 16px;
     }
+    button.grey-button.float-left.back-button {
+        float: left;
+    }
+    button.grey-button.float-left.mt-35.skip-button {
+        float: left;
+    }
 }
 
 /*
@@ -674,25 +687,144 @@ ADD NEW CSS
 div .text-left h5 {
     display: none;
 }
-select.form-control:not([size]):not([multiple]) {
-    height: auto;
+.work-daba button:hover {
+    background-color: #003f5a;
+    color: #fff;
+    border-color: #003f5a;
+}
+.add-work .add-education:hover {
+    background-color: #003f5a;
+    color: #fff;
+    border-color: #003f5a;
+}
+button.login-button:hover
+{
+    background-color: white;
+    border: 1px solid #003f5a;
+    color: #003f5a;
+    font-weight: 600;
+}
+button.grey-button.float-left.mt-35.skip-button {
+    float: left;
+}
+button.grey-button.float-left.back-button{
+    float: left;
+}
+.alert.alert-success.alert-dismissible.ww, .alert.alert-success.alert-dismissible.ew{
+    display: none;
+}
+@media screen and (max-width: 767px) and (min-width: 500px)
+{
+    .steps-one-left {
+        width: 70% !important;
+        margin: auto !important;
+    }
+    .steps-one-right {
+        width: 80%;
+        margin: auto;
+        margin-top: 25px;
+    }
+}
+/*
+TOP NAVBAR CSS
+*/
+.nav-up {
+    display: none !important;
+    background-color: #003f5a !important;
+    border-radius: 0px !important;
+    margin-bottom: 0px !important;
+    height: 60px;
+    border: none !important;
+    height: 63px !important;
+    position: fixed !important;
+    width: 100% !important;
+    top: 0 !important;
+    z-index: 1200 !important;
+}
+.nav-up div div a.navbar-brand {
+    float: left !important;
+    height: 63px !important;
+    padding: 15px 15px !important;
+    background-color: #fff !important;
+}
+.nav-up .container-fluid {
+    padding: 0px 0px;
+}
+.nav-up .navbar-toggle .icon-bar {
+    background-color: #000 !important;
+}
+.nav-up .navbar-toggle {
+    border: none;
+    background-color: #fff !important;
+    padding: 8px 12px !important;
+    margin-right: 30px !important;
+    margin-top: 17px !important;
+}
+.navbar-toggle:hover {
+    background-color: #fff !important;
+}
+.nav-up .navbar-nav > .open > a {
+    color: #fff !important;
+    background-color: #094863 !important;
+}
+
+ul.nav.navbar-nav.navbar-right li {
+    padding: 6px 0px 5px 0px !important;
+}
+/* ul.nav.navbar-nav.navbar-right {
+    height: 62px !important;
+} */
+.side-panel {
+    display: none !important;
+}
+
+@media screen and (max-width: 767px) and (min-width: 300px) {
+    .nav-up div#myNavbar {
+        margin: 0px;
+        padding: 0px 0px 10px 0px;
+        width: 60% !important;;
+        float: right !important;;
+    }
+    .steps-one-left {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 1023px) and (min-width: 300px) {
+    .nav-up {
+        display: block !important;
+    }
+    .side-panel {
+        display: none !important;
+    }
+
+    .nav-up div#myNavbar {
+        border: none;
+        width: 100%;
+        background-color: #003f5a;
+        margin: 0px;
+    }
+    .nav-up ul.nav.navbar-nav.panel-menu,
+    ul.nav.navbar-nav.navbar-right {
+        display: block;
+        margin: 0px 0px;
+    }
+    .nav-up ul.nav li {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 4000px) and (min-width: 1024px) {
+    .nav-up {
+        display: none !important;
+    }
+    .side-panel {
+        display: block !important;
+    }
 }
 
 /*
 FOR EDUCATIONAL STEP
 */
-.white-box.mb-35.mt-30.mb-30.eduction-box {
-    margin-top: 20px;
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-    padding: 10px;
-    padding-bottom: 22px;
-    /* padding: 10px 35px 10px 15px; */
-    box-shadow: 0px 0px 28px 0px rgba(0, 0, 0, 0.22);
-    border-radius: 10px;
-    position: relative;
-}
 .white-box-remove {
     position: absolute;
     right: 20px;
@@ -701,89 +833,65 @@ FOR EDUCATIONAL STEP
     cursor: pointer;
     opacity: 0.5;
 }
-.form-group.form-group-inline.mb-30.form-group-inline-change {
-    /* margin-top: inherit; */
-    overflow: hidden;
-    /* display: flex; */
-    /* flex-wrap: wrap; */
-    /* align-items: flex-end; */
-}
-.form-group-inline label {
-    width: 24%;
-    margin: 0;
-    color: rgba(0, 0, 0, 0.3);
-    font-size: 14px;
-    text-transform: uppercase;
-    display: inline-block;
-    float: left;
-}
-.form-group-inline-change input {
-    width: calc(100% - 35%);
-    margin: 0px 0px 0px 0px;
-    padding: 0;
-    font-size: 14px;
-    border: none;
-    border-bottom: rgba(0, 0, 0, 0.2) solid 1px;
-    background-color: transparent;
-    text-decoration: none !important;
-    outline: none !important;
+select.form-control:not([size]):not([multiple]) {
+    height: auto;
 }
 select#test {
     margin-left: 0px;
-    width: calc(100% - 35%);
+    width: 100%;
     position: relative;
     float: left;
-    padding: 9px;
+    padding: 7px;
+    border-radius: 6px;
 }
-.form-group.form-group-inline.form-group-inline-change {
-    display: flex;
-    flex-wrap: wrap;
+select#test:focus{
+    outline: none;
+    box-shadow: none
 }
 h5.sub-heading.text-center.mt-5px.mb-30.form-sub-change {
     display: none;
 }
 
-select {
-    min-height: auto;
-    margin-left: 0px;
-    width: calc(100% - 35%);
-    position: relative;
-    float: left;
-    top: 5px;
-    padding: 4px;
-    border-radius: 6px;
-}
 /*
-FOR WORK STEP
+Form/Card for WORK & EDUCATION
 */
-.white-box.mb-35.mt-30.mb-30.work-box {
-    margin-top: 20px;
+.des-form{
     width: 100%;
-    height: auto;
-    overflow: hidden;
-    padding: 10px;
-    padding-bottom: 22px;
-    /* padding: 10px 35px 10px 15px; */
+    background-color: rgba(255, 255, 255, 1);
+    padding: 20px;
+    border-radius: 8px;
     box-shadow: 0px 0px 28px 0px rgba(0, 0, 0, 0.22);
-    border-radius: 10px;
+    margin-top: 20px;
+}
+.form-close
+{
+    text-align: right;
+    top: -6px;
     position: relative;
+    right: -5px;
+    font-size: 14px;
+    cursor: pointer;
+    opacity: 0.4;
+    z-index: 1100;
 }
-.form-group.form-group-inline.mb-30 {
-    display: flex;
-    flex-wrap: wrap;
+.form-close i:hover{
+    color: #001f2e;
+    font-size:15px;
 }
-.form-group-inline input {
-    padding: 0;
-    width: 60%;
-    font-size: 16px;
-    margin: 0 9px 0 6%;
+.fom{
+    width: 95%;
+    margin-top: -30px;
 }
-.form-group-inline input {
-    padding: 0;
-    width: 60%;
-    font-size: 16px;
-    margin: 12px 9px 0px 5%;
+input#email{
+    font-size: 14px;
+    padding-left: 5px;
+    border-bottom-color: #9E9E9E;
+    outline: none;
+    border: none;
+    border-radius: 0px;
+    border-bottom: rgba(0, 0, 0, 0.2) solid 1px;
+    box-shadow: none;
 }
-.text-right.mt-30 {
-    margin: 20px 15px 8px 11px;
+input#email:focus{
+    box-shadow: none;
 }

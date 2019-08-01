@@ -1504,7 +1504,7 @@ padding:.3rem
     font-size: 23px !important;
 }
 .banner_text {
-    margin-top: 5px !important;
+    margin-top: 35px !important;
     padding-left: 30px !important;
     padding-right: 30px !important;
 	padding-bottom: 30px;
@@ -3273,7 +3273,8 @@ padding:.25rem .75rem;
 	line-height: 1;
 	background-color: transparent;
 	border: 1px solid transparent;
-border-radius:.25rem
+	border-radius:.25rem;
+	margin-top: 8px !important
 }
 .navbar-toggler:focus, .navbar-toggler:hover {
 	text-decoration: none
