@@ -5,13 +5,13 @@ from django.http import JsonResponse
 # Create your views here.
 
 
-def HomePageView(request):
+def IndexPageView(request):
     return render(request, 'pages/index.html', {
     })
 
 
-def LandingPageView(request):
-    return render(request, 'pages/landing.html', {
+def RegisterPageView(request):
+    return render(request, 'pages/register.html', {
     })
 
 
