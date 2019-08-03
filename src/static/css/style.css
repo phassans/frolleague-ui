@@ -205,7 +205,7 @@ ul.panel-menu li a:hover {
 }
 
 .grey-button {
-    background-color: #003f5a;
+    background-color: #002c3f;
     color: #fff;
     border: none;
     padding: 8px 16px;
@@ -368,6 +368,11 @@ ul.panel-menu li a:hover {
     cursor: pointer;
     text-transform: uppercase;
 }
+.grey-button:hover{
+    background-color: #003f5a;
+    color: #f8f7f7;
+}
+
 .transparent-button i {
     margin-right: 5px;
 }
@@ -697,13 +702,6 @@ div .text-left h5 {
     color: #fff;
     border-color: #003f5a;
 }
-button.login-button:hover
-{
-    background-color: white;
-    border: 1px solid #003f5a;
-    color: #003f5a;
-    font-weight: 600;
-}
 button.grey-button.float-left.mt-35.skip-button {
     float: left;
 }
@@ -796,6 +794,13 @@ ul.nav.navbar-nav.navbar-right li {
     .side-panel {
         display: none !important;
     }
+    /* .steps-list{
+        display: block;
+    }
+    .steps-list li{
+        width: 33%;
+        float: left;
+    } */
 
     .nav-up div#myNavbar {
         border: none;
@@ -810,6 +815,9 @@ ul.nav.navbar-nav.navbar-right li {
     }
     .nav-up ul.nav li {
         text-align: center;
+    }
+    .nav-dw{
+        display: none;
     }
 }
 
@@ -894,4 +902,45 @@ input#email{
 }
 input#email:focus{
     box-shadow: none;
+}
+/*
+NAVBAR 2
+*/
+nav.nav-dw{
+    margin-left: 160px;
+    background-color: #fff;
+    position:relative;
+    top:-8px;
+    height:auto;
+    overflow: hidden;
+    padding: 15px;
+}
+nav.nav-dw div div.navbar-header{
+    width:45%;
+    float:left;
+}
+nav.nav-dw div div.navbar-header img{
+    float:left;
+    margin: 5px 0px 0px 10px;
+    width:45px;
+    border-radius:50%;
+}
+nav.nav-dw div div.navbar-header2{
+    float: left;
+}
+
+.navbar-header2 ul.nav.navbar-nav.navbar-right li{
+    list-style: none;
+    display: list-item;
+    float: left;
+    color: #fff;
+    padding: 10px 20px !important;
+}
+.navbar-header2 ul.nav.navbar-nav.navbar-right a{
+    padding-top: 7px !important;
+    padding-bottom: 7px;
+}
+.navbar-header2 ul.nav.navbar-nav.navbar-right a:hover{
+    background-color: #003f5a;
+    color: #f8f7f7;
 }
