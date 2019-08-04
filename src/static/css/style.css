@@ -275,8 +275,8 @@ ul.panel-menu li a:hover {
 }
 
 .default-text {
-    color: #9b9b9b;
-    font-size: 14px;
+    color: #696d70;
+    font-size: 16px;
     text-align: justify;
 }
 
@@ -333,7 +333,7 @@ ul.panel-menu li a:hover {
 
 .grey-box p {
     font-size: 14px;
-    color: #adadad;
+    color: #696d70;
     font-weight: 400;
 }
 
