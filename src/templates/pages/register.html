@@ -1,740 +1,655 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0,
-      user-scalable=0"
-      name="viewport"
-      />
-    <meta name="description" content="Dealers" />
-    <meta name="keywords" content="Dealers" />
-    <meta property="og:site_name" content="Frolleague" />
-    <meta property="og:title" content="Frolleague" />
-    <meta property="og:description" content="Frolleague" />
-    <meta property="og:image" content="" />
-    <meta property="og:url" content="" />
-    <meta property="og:type" content="website" />
-    <title>Frolleague</title>
 
-    <link
-      href="{% static 'images/favicon.png' %}"
-      rel="icon"
-      type="image/png"
-      />
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,
+      user-scalable=0" name="viewport" />
+  <meta name="description" content="Dealers" />
+  <meta name="keywords" content="Dealers" />
+  <meta property="og:site_name" content="Frolleague" />
+  <meta property="og:title" content="Frolleague" />
+  <meta property="og:description" content="Frolleague" />
+  <meta property="og:image" content="" />
+  <meta property="og:url" content="" />
+  <meta property="og:type" content="website" />
+  <title>Frolleague</title>
 
-    <!-- Bootstrap Css file -->
-    <!-- <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" /> -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css"
-      />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-      crossorigin="anonymous"
-      />
+  <link href="{% static 'images/favicon.png' %}" rel="icon" type="image/png" />
 
-    <!-- Basic css File -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <!-- Bootstrap Css file -->
+  <!-- <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" /> -->
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
 
-    <!-- Jquery Js File -->
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <script type="text/javascript">
-      window.CSRF_TOKEN = "{{ csrf_token }}";
-    </script>
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
-      />
-    <script
-      src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  </head>
-  <body>
-    {% csrf_token %}
+  <!-- Basic css File -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 
-    <nav class="navbar navbar-inverse nav-up">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button
-            type="button"
-            class="navbar-toggle"
-            data-toggle="collapse"
-            data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+  <!-- Jquery Js File -->
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script type="text/javascript">
+    window.CSRF_TOKEN = "{{ csrf_token }}";
+  </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
 
-          <a class="navbar-brand" href="#">
-            <img
-              src="{% static 'images/landing_logo.png' %}"
-              alt="logo"
-              width="155px"
-              style="margin: -4px 0px 0px 10px;"
-              />
-          </a>
-        </div>
+<body>
+  {% csrf_token %}
 
-        <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav panel-menu" style="display: none;">
-            <li class="actives actives-color">
-              <a href="/dashboard/" class="dashboard-link" data-step="1">Dashboard</a>
-            </li>
-            <li>
-              <a href="#" class="dashboard-link" data-step="6">Channels</a>
-            </li>
-            <li><a href="#" class="dashboard-link" data-step="4">Work</a></li>
-            <li>
-              <a href="#" class="dashboard-link" data-step="5">Education</a>
-            </li>
-            <li>
-              <a href="#" class="dashboard-link" data-step="2">Refresh</a>
-            </li>
-          </ul>
+  <nav class="navbar navbar-inverse nav-up">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
 
-          <ul class="nav navbar-nav navbar-right">
-            <li>
-              <a href="/profile/" style="margin-top: 2px;">
-                <span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Profile
-              </a>
-            </li>
-            <li>
-              <a href="#" style="margin-top: 2px;">
-                <span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;Logout
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <nav class="navbar navbar-iverse nav-dw">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <img src="{% static 'images/4.png' %}" alt="logo" />
-          <div style="float: left;margin-left: 10px;">
-            <p class="" style="margin: 10px 0px 0px 5px;padding:0px;">
-              <span class="sp1" style="font-weight: 700">
-                D&D - Charater Creation - Step-1
-              </span>
-              <br />
-              <sapn>by Username</sapn>
-            </p>
-          </div>
-        </div>
-
-        <div class="navbar-header2">
-          <ul class="nav navbar-nav navbar-right" style="margin: 0">
-            <li>
-              <a class="grey-button">
-                Save
-              </a>
-            </li>
-            <li>
-              <a class="grey-button">
-                ❤ Like
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <div class="side-panel">
-      <div class="side-panel-top">
-        <div class="logo">
-          <a href="#"><img src="{% static 'images/landing_logo.png' %}" /></a>
-        </div>
-        <ul class="panel-menu"></ul>
-      </div>
-
-      <div
-        class="side-panel-bottom dropdown"
-        style="width: 100%;position: absolute;bottom: 0px !important;">
-        <a href="#" class="my-account dropbtn">
-          <i class="fas fa-user"></i><span>My Account</span>
+        <a class="navbar-brand" href="#">
+          <img src="{% static 'images/landing_logo.png' %}" alt="logo" width="155px"
+            style="margin: -4px 0px 0px 10px;" />
         </a>
-        <div class="dropdown-content" style="left: 160px;">
-          <a href="/profile/">Profile</a>
-          <a href="#">Logout</a>
-        </div>
       </div>
-    </div>
 
-    <div class="main-page" style="padding-top: 0%">
-      <div class="main-page-inner">
-        <ul class="steps-list">
-          <li class="active">
-            01 Linkedin Login
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav panel-menu" style="display: none;">
+          <li class="actives actives-color">
+            <a href="/dashboard/" class="dashboard-link" data-step="1">Dashboard</a>
           </li>
-          <li class="click" data-step="2">
-            02 Verify Work
+          <li>
+            <a href="#" class="dashboard-link" data-step="6">Channels</a>
           </li>
-          <li class="click" data-step="3">
-            03 Verify Education
+          <li><a href="#" class="dashboard-link" data-step="4">Work</a></li>
+          <li>
+            <a href="#" class="dashboard-link" data-step="5">Education</a>
           </li>
-          <li class="click" data-step="4">
-            04 Your Channels
+          <li>
+            <a href="#" class="dashboard-link" data-step="2">Refresh</a>
           </li>
         </ul>
-        <!-- <form id="linkedin-form" action="/dashboard/" method="POST"> -->
-        <div class="steps-container">
-          <div class="steps-one active" data-step="1">
-            <div class="steps-one-left">
-              <h3 class="mb-0">Welcome</h3>
-              <button
-                class="grey-button login-button mt-35 mb-35 continue-button"
-                data-step="1">
-                <i class="fab fa-linkedin-in"></i><span>LOGIN WITH LINKEDIN</span>
-              </button>
-              <p class="default-text bg_white">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book.
-              </p>
-            </div>
-            <div class="steps-one-right">
-              <div class="row mb-30 sm-mb-0">
-                <div class="col-md-6">
-                  <div class="grey-box">
-                    <h5>Your Class</h5>
-                    <h4>Bard</h4>
-                    <p>
-                      Lorem Ipsum is simply dummy text of the printing and
-                      typesetting industry. Lorem Ipsum has been the industry's
-                      standard dummy text ever since the 1500s, when an unknown
-                      printer took a galley of type and scrambled it to make a
-                      type specimen book.
-                    </p>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="grey-box">
-                    <h5>Your Class</h5>
-                    <h4>Bard</h4>
-                    <p>
-                      Lorem Ipsum is simply dummy text of the printing and
-                      typesetting industry. Lorem Ipsum has been the industry's
-                      standard dummy text ever since the 1500s, when an unknown
-                      printer took a galley of type and scrambled it to make a
-                      type specimen book.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="grey-box">
-                    <h5>Your Class</h5>
-                    <h4>Bard</h4>
-                    <p class="mb-0">
-                      Lorem Ipsum is simply dummy text of the printing and
-                      typesetting industry. Lorem Ipsum has been the industry's
-                      standard dummy text ever since the 1500s, when an unknown
-                      printer took a galley of type and scrambled it to make a
-                      type specimen book.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div class="steps-one" data-step="2">
-            <div class="steps-one-left">
-              <h4 class="mb-0">Please add your work info</h4>
-              <div class="mt-35 work-daba text-right">
-                <button id="add-work" class="add-work transparent-button">
-                  <i class="fas fa-plus"></i>Add Work
-                </button>
-              </div>
-
-              <div class="work-container work-stp">
-
-                <div class="des-form work-box white-boxs">
-                  <div class="form-close white-box-remove">
-                    <i class="fas fa-times"></i>
-                  </div>
-                  <div class="fom">
-                    <div class="form-group" style="margin-bottom: 0px">
-                      <label>Company</label>
-                      <div class="">
-                        <input
-                          type="text"
-                          data-name="company information"
-                          class="form-control"
-                          id="email"
-                          placeholder="Write here..."
-                          />
-                      </div>
-                    </div>
-                    <div class="form-group" style="margin-bottom: 0px">
-                      <label>Location</label>
-                      <div class="">
-                        <input
-                          type="text"
-                          data-name="location"
-                          class="form-control"
-                          id="email"
-                          placeholder="Write here..."
-                          />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="text-right mt-30">
-                <button class="grey-button continue-button" data-step="2">
-                  Continue
-                </button>
-              </div>
-
-              <div class="error-box alert alert-danger mt-35">
-                <ul class="error-box-list mb-0"></ul>
-              </div>
-            </div>
-
-            <div class="steps-one-right"></div>
-          </div>
-
-          <div class="steps-one" data-step="3">
-            <div class="steps-one-left">
-              <h4 class="mb-0">Please add your education info</h4>
-              <div class="add-work mt-35 text-right">
-                <button
-                  id="add-education"
-                  class="add-education transparent-button">
-                  <i class="fas fa-plus"></i>Add Education
-                </button>
-              </div>
-
-              <div class="education-container">
-
-                <div class="des-form eduction-box white-boxs"
-                  style="padding-bottom: 50px;">
-                  <div class="form-close white-box-remove"><i class="fas
-                      fa-times"></i></div>
-                  <div class="fom">
-                    <div class="form-group" style="margin-bottom: 0px">
-                      <label>School</label>
-                      <div class="">
-                        <input type="text" data-name="school"
-                          class="form-control" id="email"
-                          placeholder="Write here...">
-                      </div>
-                    </div>
-                    <div class="form-group" style="margin-bottom: 0px">
-                      <label>Degree</label>
-                      <select class="form-control" title="" id="test"
-                        data-name="degree">
-                        <option>Select Degree</option>
-                        <option>Undergraduate</option>
-                        <option>Bachelors</option>
-                        <option>Masters</option>
-                      </select>
-                    </div>
-                    <div class="form-group" style="margin-bottom: 0px">
-                      <label>Stream</label>
-                      <div class=""><input type="text" data-name="stream"
-                          id="email" placeholder="Write here..."></div>
-                    </div>
-                    <div class="form-group" style="margin-bottom: 0px;">
-                      <label>From Year</label>
-                      <select class="" title="" data-name="year" id="test">
-                        <option value="Select Year">Select Year</option>
-                        <option value="2019">2019</option>
-                        <option value="2018">2018</option>
-                        <option value="2017">2017</option>
-                        <option value="2016">2016</option>
-                        <option value="2015">2015</option>
-                        <option value="2014">2014</option>
-                        <option value="2013">2013</option>
-                        <option value="2012">2012</option>
-                        <option value="2011">2011</option>
-                        <option value="2010">2010</option>
-                        <option value="2009">2009</option>
-                        <option value="2008">2008</option>
-                        <option value="2007">2007</option>
-                        <option value="2006">2006</option>
-                        <option value="2005">2005</option>
-                        <option value="2004">2004</option>
-                        <option value="2003">2003</option>
-                        <option value="2002">2002</option>
-                        <option value="2001">2001</option>
-                        <option value="2000">2000</option>
-                        <option value="1999">1999</option>
-                        <option value="1998">1998</option>
-                        <option value="1997">1997</option>
-                        <option value="1996">1996</option>
-                        <option value="1995">1995</option>
-                        <option value="1994">1994</option>
-                        <option value="1993">1993</option>
-                        <option value="1992">1992</option>
-                        <option value="1991">1991</option>
-                        <option value="1990">1990</option>
-                        <option value="1989">1989</option>
-                        <option value="1988">1988</option>
-                        <option value="1987">1987</option>
-                        <option value="1986">1986</option>
-                        <option value="1985">1985</option>
-                        <option value="1984">1984</option>
-                        <option value="1983">1983</option>
-                        <option value="1982">1982</option>
-                        <option value="1981">1981</option>
-                        <option value="1980">1980</option>
-                        <option value="1979">1979</option>
-                        <option value="1978">1978</option>
-                        <option value="1977">1977</option>
-                        <option value="1976">1976</option>
-                        <option value="1975">1975</option>
-                        <option value="1974">1974</option>
-                        <option value="1973">1973</option>
-                        <option value="1972">1972</option>
-                        <option value="1971">1971</option>
-                        <option value="1970">1970</option>
-                        <option value="1969">1969</option>
-                        <option value="1968">1968</option>
-                        <option value="1967">1967</option>
-                        <option value="1966">1966</option>
-                        <option value="1965">1965</option>
-                        <option value="1964">1964</option>
-                        <option value="1963">1963</option>
-                        <option value="1962">1962</option>
-                        <option value="1961">1961</option>
-                        <option value="1960">1960</option>
-                        <option value="1959">1959</option>
-                        <option value="1958">1958</option>
-                        <option value="1957">1957</option>
-                        <option value="1956">1956</option>
-                        <option value="1955">1955</option>
-                        <option value="1954">1954</option>
-                        <option value="1953">1953</option>
-                        <option value="1952">1952</option>
-                        <option value="1951">1951</option>
-                        <option value="1950">1950</option>
-                        <option value="1949">1949</option>
-                        <option value="1948">1948</option>
-                        <option value="1947">1947</option>
-                        <option value="1946">1946</option>
-                        <option value="1945">1945</option>
-                        <option value="1944">1944</option>
-                        <option value="1943">1943</option>
-                        <option value="1942">1942</option>
-                        <option value="1941">1941</option>
-                        <option value="1940">1940</option>
-                        <option value="1939">1939</option>
-                        <option value="1938">1938</option>
-                        <option value="1937">1937</option>
-                        <option value="1936">1936</option>
-                        <option value="1935">1935</option>
-                        <option value="1934">1934</option>
-                        <option value="1933">1933</option>
-                        <option value="1932">1932</option>
-                        <option value="1931">1931</option>
-                        <option value="1930">1930</option>
-                        <option value="1929">1929</option>
-                        <option value="1928">1928</option>
-                        <option value="1927">1927</option>
-                        <option value="1926">1926</option>
-                        <option value="1925">1925</option>
-                        <option value="1924">1924</option>
-                        <option value="1923">1923</option>
-                        <option value="1922">1922</option>
-                        <option value="1921">1921</option>
-                        <option value="1920">1920</option>
-                        <option value="1919">1919</option>
-                        <option value="1918">1918</option>
-                        <option value="1917">1917</option>
-                        <option value="1916">1916</option>
-                        <option value="1915">1915</option>
-                        <option value="1914">1914</option>
-                        <option value="1913">1913</option>
-                        <option value="1912">1912</option>
-                        <option value="1911">1911</option>
-                        <option value="1910">1910</option>
-                        <option value="1909">1909</option>
-                        <option value="1908">1908</option>
-                        <option value="1907">1907</option>
-                        <option value="1906">1906</option>
-                        <option value="1905">1905</option>
-                        <option value="1904">1904</option>
-                        <option value="1903">1903</option>
-                        <option value="1902">1902</option>
-                        <option value="1901">1901</option>
-                        <option value="1900">1900</option>
-                      </select>
-                    </div>
-                    <div class="form-group" style="margin-bottom: 0px;">
-                      <label>To Year</label>
-                      <select class="" title="" data-name="toyear" id="test">
-                        <option value="Select Year">Select Year</option>
-                        <option value="2019">2019</option>
-                        <option value="2018">2018</option>
-                        <option value="2017">2017</option>
-                        <option value="2016">2016</option>
-                        <option value="2015">2015</option>
-                        <option value="2014">2014</option>
-                        <option value="2013">2013</option>
-                        <option value="2012">2012</option>
-                        <option value="2011">2011</option>
-                        <option value="2010">2010</option>
-                        <option value="2009">2009</option>
-                        <option value="2008">2008</option>
-                        <option value="2007">2007</option>
-                        <option value="2006">2006</option>
-                        <option value="2005">2005</option>
-                        <option value="2004">2004</option>
-                        <option value="2003">2003</option>
-                        <option value="2002">2002</option>
-                        <option value="2001">2001</option>
-                        <option value="2000">2000</option>
-                        <option value="1999">1999</option>
-                        <option value="1998">1998</option>
-                        <option value="1997">1997</option>
-                        <option value="1996">1996</option>
-                        <option value="1995">1995</option>
-                        <option value="1994">1994</option>
-                        <option value="1993">1993</option>
-                        <option value="1992">1992</option>
-                        <option value="1991">1991</option>
-                        <option value="1990">1990</option>
-                        <option value="1989">1989</option>
-                        <option value="1988">1988</option>
-                        <option value="1987">1987</option>
-                        <option value="1986">1986</option>
-                        <option value="1985">1985</option>
-                        <option value="1984">1984</option>
-                        <option value="1983">1983</option>
-                        <option value="1982">1982</option>
-                        <option value="1981">1981</option>
-                        <option value="1980">1980</option>
-                        <option value="1979">1979</option>
-                        <option value="1978">1978</option>
-                        <option value="1977">1977</option>
-                        <option value="1976">1976</option>
-                        <option value="1975">1975</option>
-                        <option value="1974">1974</option>
-                        <option value="1973">1973</option>
-                        <option value="1972">1972</option>
-                        <option value="1971">1971</option>
-                        <option value="1970">1970</option>
-                        <option value="1969">1969</option>
-                        <option value="1968">1968</option>
-                        <option value="1967">1967</option>
-                        <option value="1966">1966</option>
-                        <option value="1965">1965</option>
-                        <option value="1964">1964</option>
-                        <option value="1963">1963</option>
-                        <option value="1962">1962</option>
-                        <option value="1961">1961</option>
-                        <option value="1960">1960</option>
-                        <option value="1959">1959</option>
-                        <option value="1958">1958</option>
-                        <option value="1957">1957</option>
-                        <option value="1956">1956</option>
-                        <option value="1955">1955</option>
-                        <option value="1954">1954</option>
-                        <option value="1953">1953</option>
-                        <option value="1952">1952</option>
-                        <option value="1951">1951</option>
-                        <option value="1950">1950</option>
-                        <option value="1949">1949</option>
-                        <option value="1948">1948</option>
-                        <option value="1947">1947</option>
-                        <option value="1946">1946</option>
-                        <option value="1945">1945</option>
-                        <option value="1944">1944</option>
-                        <option value="1943">1943</option>
-                        <option value="1942">1942</option>
-                        <option value="1941">1941</option>
-                        <option value="1940">1940</option>
-                        <option value="1939">1939</option>
-                        <option value="1938">1938</option>
-                        <option value="1937">1937</option>
-                        <option value="1936">1936</option>
-                        <option value="1935">1935</option>
-                        <option value="1934">1934</option>
-                        <option value="1933">1933</option>
-                        <option value="1932">1932</option>
-                        <option value="1931">1931</option>
-                        <option value="1930">1930</option>
-                        <option value="1929">1929</option>
-                        <option value="1928">1928</option>
-                        <option value="1927">1927</option>
-                        <option value="1926">1926</option>
-                        <option value="1925">1925</option>
-                        <option value="1924">1924</option>
-                        <option value="1923">1923</option>
-                        <option value="1922">1922</option>
-                        <option value="1921">1921</option>
-                        <option value="1920">1920</option>
-                        <option value="1919">1919</option>
-                        <option value="1918">1918</option>
-                        <option value="1917">1917</option>
-                        <option value="1916">1916</option>
-                        <option value="1915">1915</option>
-                        <option value="1914">1914</option>
-                        <option value="1913">1913</option>
-                        <option value="1912">1912</option>
-                        <option value="1911">1911</option>
-                        <option value="1910">1910</option>
-                        <option value="1909">1909</option>
-                        <option value="1908">1908</option>
-                        <option value="1907">1907</option>
-                        <option value="1906">1906</option>
-                        <option value="1905">1905</option>
-                        <option value="1904">1904</option>
-                        <option value="1903">1903</option>
-                        <option value="1902">1902</option>
-                        <option value="1901">1901</option>
-                        <option value="1900">1900</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-              <div class="text-right mt-30">
-                <button
-                  class="grey-button float-left back-button"
-                  data-step="3">
-                  Back
-                </button>
-                <button class="grey-button continue-button" data-step="3">
-                  Continue
-                </button>
-              </div>
-              <div class="error-box alert alert-danger mt-35">
-                <ul class="error-box-list mb-0"></ul>
-              </div>
-            </div>
-            <div class="steps-one-right"></div>
-          </div>
-
-          <div class="steps-one" data-step="4">
-            <div class="steps-one-left">
-              <h4 class="mb-0">Please verify your channels</h4>
-              <div class="channel-container">
-                <div class="white-box mb-35 mt-30 mb-30">
-                  <ul class="chanel-list cha-list mb-0">
-                    <li>
-                      <div class="chanel-list-left">
-                        Company 1
-                      </div>
-                      <div class="chanel-list-right">
-                        <div class="custom-checkbox">
-                          <input
-                            type="checkbox"
-                            class="chanel-checkbox"
-                            id="chk1"
-                            />
-                          <label for="chk1"></label>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="chanel-list-left">
-                        Company 1 - Location
-                      </div>
-                      <div class="chanel-list-right">
-                        <div class="custom-checkbox">
-                          <input
-                            type="checkbox"
-                            class="chanel-checkbox"
-                            id="chk2"
-                            />
-                          <label for="chk2"></label>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="white-box mb-35 mb-30">
-                  <ul class="chanel-list cha-list-school mb-0">
-                    <li>
-                      <div class="chanel-list-left">
-                        School 1
-                      </div>
-                      <div class="chanel-list-right">
-                        <div class="custom-checkbox">
-                          <input
-                            type="checkbox"
-                            class="chanel-checkbox"
-                            id="chk3"
-                            />
-                          <label for="chk3"></label>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="chanel-list-left">
-                        School 1 - Degree - Stream
-                      </div>
-
-                      <div class="chanel-list-right">
-                        <div class="custom-checkbox">
-                          <input
-                            type="checkbox"
-                            class="chanel-checkbox"
-                            id="chk4"
-                            />
-                          <label for="chk4"></label>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="chanel-list-left">
-                        School 1 - Degree - Stream - Year
-                      </div>
-                      <div class="chanel-list-right">
-                        <div class="custom-checkbox">
-                          <input
-                            type="checkbox"
-                            class="chanel-checkbox"
-                            id="chk5"
-                            />
-                          <label for="chk5"></label>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="text-right">
-                <button
-                  class="grey-button float-left back-button"
-                  data-step="4">
-                  Back
-                </button>
-                <a href="/dashboard/">
-                  <button class="grey-button">Get Started</button>
-                </a>
-              </div>
-            </div>
-
-            <div class="steps-one-right"></div>
-          </div>
-        </div>
-        <!-- </form> -->
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/profile/" style="margin-top: 2px;">
+              <span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Profile
+            </a>
+          </li>
+          <li>
+            <a href="#" style="margin-top: 2px;">
+              <span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;Logout
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
+  </nav>
 
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
-    <script src="{% static 'js/custom.js' %}"></script>
-  </body>
+  <nav class="navbar navbar-iverse nav-dw">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <img src="{% static 'images/4.png' %}" alt="logo" />
+        <div style="float: left;margin-left: 10px;">
+          <p class="" style="margin: 15px 0px 0px 5px;padding:0px;">
+            <span class="sp1" style="font-size:20px; font-weight: 500">
+              Frolleague > Please Register
+            </span>
+            <!--<br />
+            <sapn>make sure you enter accurate information.</sapn>-->
+          </p>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="side-panel">
+    <div class="side-panel-top">
+      <div class="logo">
+        <a href="#"><img src="{% static 'images/landing_logo.png' %}" /></a>
+      </div>
+      <ul class="panel-menu"></ul>
+    </div>
+
+    <div class="side-panel-bottom dropdown" style="width: 100%;position: absolute;bottom: 0px !important;">
+      <a href="#" class="my-account dropbtn">
+        <i class="fas fa-user"></i><span>My Account</span>
+      </a>
+      <div class="dropdown-content" style="left: 160px;">
+        <a href="/profile/">Profile</a>
+        <a href="#">Logout</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-page" style="padding-top: 0%">
+    <div class="main-page-inner">
+      <ul class="steps-list">
+        <li class="active">
+          01 Linkedin Login
+        </li>
+        <li class="click" data-step="2">
+          02 Verify Work
+        </li>
+        <li class="click" data-step="3">
+          03 Verify Education
+        </li>
+        <li class="click" data-step="4">
+          04 Your Channels
+        </li>
+      </ul>
+      <!-- <form id="linkedin-form" action="/dashboard/" method="POST"> -->
+      <div class="steps-container">
+        <div class="steps-one active" data-step="1">
+          <div class="steps-one-left">
+            <h3 class="mb-0">Welcome</h3>
+            <button class="grey-button login-button mt-35 mb-35 continue-button" data-step="1">
+              <i class="fab fa-linkedin-in"></i><span>LOGIN WITH LINKEDIN</span>
+            </button>
+            <p class="default-text bg_white">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy
+              text ever since the 1500s, when an unknown printer took a galley
+              of type and scrambled it to make a type specimen book.
+            </p>
+          </div>
+          <div class="steps-one-right">
+            <div class="row mb-30 sm-mb-0">
+              <div class="col-md-6">
+                <div class="grey-box">
+                  <h5>Your Class</h5>
+                  <h4>Bard</h4>
+                  <p>
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry. Lorem Ipsum has been the industry's
+                    standard dummy text ever since the 1500s, when an unknown
+                    printer took a galley of type and scrambled it to make a
+                    type specimen book.
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="grey-box">
+                  <h5>Your Class</h5>
+                  <h4>Bard</h4>
+                  <p>
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry. Lorem Ipsum has been the industry's
+                    standard dummy text ever since the 1500s, when an unknown
+                    printer took a galley of type and scrambled it to make a
+                    type specimen book.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="grey-box">
+                  <h5>Your Class</h5>
+                  <h4>Bard</h4>
+                  <p class="mb-0">
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry. Lorem Ipsum has been the industry's
+                    standard dummy text ever since the 1500s, when an unknown
+                    printer took a galley of type and scrambled it to make a
+                    type specimen book.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="steps-one" data-step="2">
+          <div class="steps-one-left">
+            <h4 class="mb-0">Please add your work info</h4>
+            <div class="mt-35 work-daba text-right">
+              <button id="add-work" class="add-work transparent-button">
+                <i class="fas fa-plus"></i>Add Work
+              </button>
+            </div>
+
+            <div class="work-container work-stp">
+
+              <div class="des-form work-box white-boxs">
+                <div class="form-close white-box-remove">
+                  <i class="fas fa-times"></i>
+                </div>
+                <div class="fom">
+                  <div class="form-group" style="margin-bottom: 0px">
+                    <label>Company</label>
+                    <div class="">
+                      <input type="text" data-name="company information" class="form-control" id="email"
+                        placeholder="Write here..." />
+                    </div>
+                  </div>
+                  <div class="form-group" style="margin-bottom: 0px">
+                    <label>Location</label>
+                    <div class="">
+                      <input type="text" data-name="location" class="form-control" id="email"
+                        placeholder="Write here..." />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="text-right mt-30">
+              <button class="grey-button continue-button" data-step="2">
+                Continue
+              </button>
+            </div>
+
+            <div class="error-box alert alert-danger mt-35">
+              <ul class="error-box-list mb-0"></ul>
+            </div>
+          </div>
+
+          <div class="steps-one-right"></div>
+        </div>
+
+        <div class="steps-one" data-step="3">
+          <div class="steps-one-left">
+            <h4 class="mb-0">Please add your education info</h4>
+            <div class="add-work mt-35 text-right">
+              <button id="add-education" class="add-education transparent-button">
+                <i class="fas fa-plus"></i>Add Education
+              </button>
+            </div>
+
+            <div class="education-container">
+
+              <div class="des-form eduction-box white-boxs" style="padding-bottom: 50px;">
+                <div class="form-close white-box-remove"><i class="fas
+                      fa-times"></i></div>
+                <div class="fom">
+                  <div class="form-group" style="margin-bottom: 0px">
+                    <label>School</label>
+                    <div class="">
+                      <input type="text" data-name="school" class="form-control" id="email" placeholder="Write here...">
+                    </div>
+                  </div>
+                  <div class="form-group" style="margin-bottom: 0px">
+                    <label>Degree</label>
+                    <select class="form-control" title="" id="test" data-name="degree">
+                      <option>Select Degree</option>
+                      <option>Undergraduate</option>
+                      <option>Bachelors</option>
+                      <option>Masters</option>
+                    </select>
+                  </div>
+                  <div class="form-group" style="margin-bottom: 0px">
+                    <label>Stream</label>
+                    <div class=""><input type="text" data-name="stream" id="email" placeholder="Write here..."></div>
+                  </div>
+                  <div class="form-group" style="margin-bottom: 0px;">
+                    <label>From Year</label>
+                    <select class="" title="" data-name="year" id="test">
+                      <option value="Select Year">Select Year</option>
+                      <option value="2019">2019</option>
+                      <option value="2018">2018</option>
+                      <option value="2017">2017</option>
+                      <option value="2016">2016</option>
+                      <option value="2015">2015</option>
+                      <option value="2014">2014</option>
+                      <option value="2013">2013</option>
+                      <option value="2012">2012</option>
+                      <option value="2011">2011</option>
+                      <option value="2010">2010</option>
+                      <option value="2009">2009</option>
+                      <option value="2008">2008</option>
+                      <option value="2007">2007</option>
+                      <option value="2006">2006</option>
+                      <option value="2005">2005</option>
+                      <option value="2004">2004</option>
+                      <option value="2003">2003</option>
+                      <option value="2002">2002</option>
+                      <option value="2001">2001</option>
+                      <option value="2000">2000</option>
+                      <option value="1999">1999</option>
+                      <option value="1998">1998</option>
+                      <option value="1997">1997</option>
+                      <option value="1996">1996</option>
+                      <option value="1995">1995</option>
+                      <option value="1994">1994</option>
+                      <option value="1993">1993</option>
+                      <option value="1992">1992</option>
+                      <option value="1991">1991</option>
+                      <option value="1990">1990</option>
+                      <option value="1989">1989</option>
+                      <option value="1988">1988</option>
+                      <option value="1987">1987</option>
+                      <option value="1986">1986</option>
+                      <option value="1985">1985</option>
+                      <option value="1984">1984</option>
+                      <option value="1983">1983</option>
+                      <option value="1982">1982</option>
+                      <option value="1981">1981</option>
+                      <option value="1980">1980</option>
+                      <option value="1979">1979</option>
+                      <option value="1978">1978</option>
+                      <option value="1977">1977</option>
+                      <option value="1976">1976</option>
+                      <option value="1975">1975</option>
+                      <option value="1974">1974</option>
+                      <option value="1973">1973</option>
+                      <option value="1972">1972</option>
+                      <option value="1971">1971</option>
+                      <option value="1970">1970</option>
+                      <option value="1969">1969</option>
+                      <option value="1968">1968</option>
+                      <option value="1967">1967</option>
+                      <option value="1966">1966</option>
+                      <option value="1965">1965</option>
+                      <option value="1964">1964</option>
+                      <option value="1963">1963</option>
+                      <option value="1962">1962</option>
+                      <option value="1961">1961</option>
+                      <option value="1960">1960</option>
+                      <option value="1959">1959</option>
+                      <option value="1958">1958</option>
+                      <option value="1957">1957</option>
+                      <option value="1956">1956</option>
+                      <option value="1955">1955</option>
+                      <option value="1954">1954</option>
+                      <option value="1953">1953</option>
+                      <option value="1952">1952</option>
+                      <option value="1951">1951</option>
+                      <option value="1950">1950</option>
+                      <option value="1949">1949</option>
+                      <option value="1948">1948</option>
+                      <option value="1947">1947</option>
+                      <option value="1946">1946</option>
+                      <option value="1945">1945</option>
+                      <option value="1944">1944</option>
+                      <option value="1943">1943</option>
+                      <option value="1942">1942</option>
+                      <option value="1941">1941</option>
+                      <option value="1940">1940</option>
+                      <option value="1939">1939</option>
+                      <option value="1938">1938</option>
+                      <option value="1937">1937</option>
+                      <option value="1936">1936</option>
+                      <option value="1935">1935</option>
+                      <option value="1934">1934</option>
+                      <option value="1933">1933</option>
+                      <option value="1932">1932</option>
+                      <option value="1931">1931</option>
+                      <option value="1930">1930</option>
+                      <option value="1929">1929</option>
+                      <option value="1928">1928</option>
+                      <option value="1927">1927</option>
+                      <option value="1926">1926</option>
+                      <option value="1925">1925</option>
+                      <option value="1924">1924</option>
+                      <option value="1923">1923</option>
+                      <option value="1922">1922</option>
+                      <option value="1921">1921</option>
+                      <option value="1920">1920</option>
+                      <option value="1919">1919</option>
+                      <option value="1918">1918</option>
+                      <option value="1917">1917</option>
+                      <option value="1916">1916</option>
+                      <option value="1915">1915</option>
+                      <option value="1914">1914</option>
+                      <option value="1913">1913</option>
+                      <option value="1912">1912</option>
+                      <option value="1911">1911</option>
+                      <option value="1910">1910</option>
+                      <option value="1909">1909</option>
+                      <option value="1908">1908</option>
+                      <option value="1907">1907</option>
+                      <option value="1906">1906</option>
+                      <option value="1905">1905</option>
+                      <option value="1904">1904</option>
+                      <option value="1903">1903</option>
+                      <option value="1902">1902</option>
+                      <option value="1901">1901</option>
+                      <option value="1900">1900</option>
+                    </select>
+                  </div>
+                  <div class="form-group" style="margin-bottom: 0px;">
+                    <label>To Year</label>
+                    <select class="" title="" data-name="toyear" id="test">
+                      <option value="Select Year">Select Year</option>
+                      <option value="2019">2019</option>
+                      <option value="2018">2018</option>
+                      <option value="2017">2017</option>
+                      <option value="2016">2016</option>
+                      <option value="2015">2015</option>
+                      <option value="2014">2014</option>
+                      <option value="2013">2013</option>
+                      <option value="2012">2012</option>
+                      <option value="2011">2011</option>
+                      <option value="2010">2010</option>
+                      <option value="2009">2009</option>
+                      <option value="2008">2008</option>
+                      <option value="2007">2007</option>
+                      <option value="2006">2006</option>
+                      <option value="2005">2005</option>
+                      <option value="2004">2004</option>
+                      <option value="2003">2003</option>
+                      <option value="2002">2002</option>
+                      <option value="2001">2001</option>
+                      <option value="2000">2000</option>
+                      <option value="1999">1999</option>
+                      <option value="1998">1998</option>
+                      <option value="1997">1997</option>
+                      <option value="1996">1996</option>
+                      <option value="1995">1995</option>
+                      <option value="1994">1994</option>
+                      <option value="1993">1993</option>
+                      <option value="1992">1992</option>
+                      <option value="1991">1991</option>
+                      <option value="1990">1990</option>
+                      <option value="1989">1989</option>
+                      <option value="1988">1988</option>
+                      <option value="1987">1987</option>
+                      <option value="1986">1986</option>
+                      <option value="1985">1985</option>
+                      <option value="1984">1984</option>
+                      <option value="1983">1983</option>
+                      <option value="1982">1982</option>
+                      <option value="1981">1981</option>
+                      <option value="1980">1980</option>
+                      <option value="1979">1979</option>
+                      <option value="1978">1978</option>
+                      <option value="1977">1977</option>
+                      <option value="1976">1976</option>
+                      <option value="1975">1975</option>
+                      <option value="1974">1974</option>
+                      <option value="1973">1973</option>
+                      <option value="1972">1972</option>
+                      <option value="1971">1971</option>
+                      <option value="1970">1970</option>
+                      <option value="1969">1969</option>
+                      <option value="1968">1968</option>
+                      <option value="1967">1967</option>
+                      <option value="1966">1966</option>
+                      <option value="1965">1965</option>
+                      <option value="1964">1964</option>
+                      <option value="1963">1963</option>
+                      <option value="1962">1962</option>
+                      <option value="1961">1961</option>
+                      <option value="1960">1960</option>
+                      <option value="1959">1959</option>
+                      <option value="1958">1958</option>
+                      <option value="1957">1957</option>
+                      <option value="1956">1956</option>
+                      <option value="1955">1955</option>
+                      <option value="1954">1954</option>
+                      <option value="1953">1953</option>
+                      <option value="1952">1952</option>
+                      <option value="1951">1951</option>
+                      <option value="1950">1950</option>
+                      <option value="1949">1949</option>
+                      <option value="1948">1948</option>
+                      <option value="1947">1947</option>
+                      <option value="1946">1946</option>
+                      <option value="1945">1945</option>
+                      <option value="1944">1944</option>
+                      <option value="1943">1943</option>
+                      <option value="1942">1942</option>
+                      <option value="1941">1941</option>
+                      <option value="1940">1940</option>
+                      <option value="1939">1939</option>
+                      <option value="1938">1938</option>
+                      <option value="1937">1937</option>
+                      <option value="1936">1936</option>
+                      <option value="1935">1935</option>
+                      <option value="1934">1934</option>
+                      <option value="1933">1933</option>
+                      <option value="1932">1932</option>
+                      <option value="1931">1931</option>
+                      <option value="1930">1930</option>
+                      <option value="1929">1929</option>
+                      <option value="1928">1928</option>
+                      <option value="1927">1927</option>
+                      <option value="1926">1926</option>
+                      <option value="1925">1925</option>
+                      <option value="1924">1924</option>
+                      <option value="1923">1923</option>
+                      <option value="1922">1922</option>
+                      <option value="1921">1921</option>
+                      <option value="1920">1920</option>
+                      <option value="1919">1919</option>
+                      <option value="1918">1918</option>
+                      <option value="1917">1917</option>
+                      <option value="1916">1916</option>
+                      <option value="1915">1915</option>
+                      <option value="1914">1914</option>
+                      <option value="1913">1913</option>
+                      <option value="1912">1912</option>
+                      <option value="1911">1911</option>
+                      <option value="1910">1910</option>
+                      <option value="1909">1909</option>
+                      <option value="1908">1908</option>
+                      <option value="1907">1907</option>
+                      <option value="1906">1906</option>
+                      <option value="1905">1905</option>
+                      <option value="1904">1904</option>
+                      <option value="1903">1903</option>
+                      <option value="1902">1902</option>
+                      <option value="1901">1901</option>
+                      <option value="1900">1900</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="text-right mt-30">
+              <button class="grey-button float-left back-button" data-step="3">
+                Back
+              </button>
+              <button class="grey-button continue-button" data-step="3">
+                Continue
+              </button>
+            </div>
+            <div class="error-box alert alert-danger mt-35">
+              <ul class="error-box-list mb-0"></ul>
+            </div>
+          </div>
+          <div class="steps-one-right"></div>
+        </div>
+
+        <div class="steps-one" data-step="4">
+          <div class="steps-one-left">
+            <h4 class="mb-0">Please verify your channels</h4>
+            <div class="channel-container">
+              <div class="white-box mb-35 mt-30 mb-30">
+                <ul class="chanel-list cha-list mb-0">
+                  <li>
+                    <div class="chanel-list-left">
+                      Company 1
+                    </div>
+                    <div class="chanel-list-right">
+                      <div class="custom-checkbox">
+                        <input type="checkbox" class="chanel-checkbox" id="chk1" />
+                        <label for="chk1"></label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="chanel-list-left">
+                      Company 1 - Location
+                    </div>
+                    <div class="chanel-list-right">
+                      <div class="custom-checkbox">
+                        <input type="checkbox" class="chanel-checkbox" id="chk2" />
+                        <label for="chk2"></label>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="white-box mb-35 mb-30">
+                <ul class="chanel-list cha-list-school mb-0">
+                  <li>
+                    <div class="chanel-list-left">
+                      School 1
+                    </div>
+                    <div class="chanel-list-right">
+                      <div class="custom-checkbox">
+                        <input type="checkbox" class="chanel-checkbox" id="chk3" />
+                        <label for="chk3"></label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="chanel-list-left">
+                      School 1 - Degree - Stream
+                    </div>
+
+                    <div class="chanel-list-right">
+                      <div class="custom-checkbox">
+                        <input type="checkbox" class="chanel-checkbox" id="chk4" />
+                        <label for="chk4"></label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="chanel-list-left">
+                      School 1 - Degree - Stream - Year
+                    </div>
+                    <div class="chanel-list-right">
+                      <div class="custom-checkbox">
+                        <input type="checkbox" class="chanel-checkbox" id="chk5" />
+                        <label for="chk5"></label>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="text-right">
+              <button class="grey-button float-left back-button" data-step="4">
+                Back
+              </button>
+              <a href="/dashboard/">
+                <button class="grey-button">Get Started</button>
+              </a>
+            </div>
+          </div>
+
+          <div class="steps-one-right"></div>
+        </div>
+      </div>
+      <!-- </form> -->
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
+  <script src="{% static 'js/custom.js' %}"></script>
+</body>
+
 </html>
