@@ -97,14 +97,9 @@ li.nav-item:hover {
     padding: 60px 0;
 }
 
-.about h5 {
-    font-weight: bold;
-    color: #017a7b;
-}
-
 .about h3 {
-    color: #003f5a;
-    font-size: 31px;
+    color: #383c47;
+    font-size: 30px;
 }
 
 .about p {
@@ -129,7 +124,7 @@ li.nav-item:hover {
 .footer {
     float: left;
     width: 100%;
-    background: #303946;
+    background: #003f5a;
     padding: 32px 0;
 }
 
@@ -335,11 +330,8 @@ padding-right:0px !important;
     }
 
     .about h5 {
-        font-weight: bold;
-        color: #017a7b;
+        color: #003f5a;
         font-size: 30px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
     }
 
     .about h3 {
