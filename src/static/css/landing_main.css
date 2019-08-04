@@ -98,8 +98,13 @@ li.nav-item:hover {
 }
 
 .about h3 {
-    color: #383c47;
+    color: #003f5a;
     font-size: 30px;
+}
+
+.about h2 {
+    color: #383c47;
+    font-size: 23px;
 }
 
 .about p {
