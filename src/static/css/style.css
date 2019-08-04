@@ -315,6 +315,10 @@ ul.panel-menu li a:hover {
     padding-left: 50px;
 }
 
+.steps-one-full {
+    width: 80%;
+}
+
 .grey-box {
     padding: 25px;
     border-radius: 4px;
