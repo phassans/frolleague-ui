@@ -23,9 +23,11 @@ input {
     align-items: center;
     justify-content: center;
 }
+
 .logo img {
     width: 100%;
 }
+
 .side-panel {
     display: flex;
     flex-direction: column;
@@ -41,36 +43,44 @@ input {
     box-shadow: 0px 0px 21px 2px rgba(0, 0, 0, 0.23);
     z-index: 222;
 }
+
 .panel-menu {
     padding: 10px 0 0 0;
     margin: 0;
 }
+
 .panel-menu li {
     list-style: none;
     margin: 0px 0 0 0;
     text-align: left;
     padding: 6px 0px 6px 0px;
 }
+
 .panel-menu li:hover {
     background-color: #3d7a9426;
 }
+
 .panel-menu li:hover {
     color: rgba(255, 255, 255, 1);
 }
+
 ul.panel-menu li a:hover {
     color: #ffffff;
 }
+
 .panel-menu li a {
     color: rgba(255, 255, 255, 0.68);
     transition: 0.15s color;
     padding: 9px 70px 9px 22px;
 }
+
 .actives {
     background-color: #3d7a9426;
-    color:#fff !important;
+    color: #fff !important;
 }
-.actives-color{
-    color:#fff !important;
+
+.actives-color {
+    color: #fff !important;
 }
 
 .my-account {
@@ -80,16 +90,20 @@ ul.panel-menu li a:hover {
     justify-content: center;
     transition: 0.15s color;
 }
+
 .my-account:hover {
     color: #000;
 }
+
 .my-account i {
     font-size: 14px;
     margin-right: 10px;
 }
+
 .my-account span {
     font-size: 12px;
 }
+
 .dropbtn {
     background-color: #ffffff;
     color: rgba(0, 0, 0, 0.78);
@@ -99,10 +113,12 @@ ul.panel-menu li a:hover {
     cursor: pointer;
     font-weight: 600;
 }
+
 .dropdown {
     position: relative;
     display: inline-block;
 }
+
 .dropdown-content {
     display: none;
     position: absolute;
@@ -113,6 +129,7 @@ ul.panel-menu li a:hover {
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     text-align: center;
 }
+
 .dropdown-content a {
     color: rgba(0, 0, 0, 0.78);
     padding: 8px 7px;
@@ -121,13 +138,16 @@ ul.panel-menu li a:hover {
     font-size: 11px;
     border-bottom: 1px solid rgba(128, 128, 128, 0.2);
 }
+
 .dropdown-content a:hover {
     background-color: #003f5a;
     color: #fff;
 }
+
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
 .dropdown:hover .dropbtn {
     background-color: #ffffff;
 }
@@ -138,12 +158,14 @@ ul.panel-menu li a:hover {
     padding: 5%;
     padding-top: 0px;
 }
+
 .steps-list {
     display: inline-flex;
     padding: 0;
     margin: 0;
-    width: 90%;
+    width: 60%;
 }
+
 .steps-list li {
     list-style: none;
     width: 100%;
@@ -154,16 +176,20 @@ ul.panel-menu li a:hover {
     font-size: 14px;
     white-space: nowrap;
 }
+
 .steps-list li.click {
     cursor: pointer;
 }
+
 .steps-list li.click:not(.visited) {
     cursor: not-allowed;
 }
+
 .steps-list li:last-of-type {
     min-width: initial;
     width: auto;
 }
+
 .steps-list li:before {
     content: "";
     background-color: #dddddd;
@@ -175,6 +201,7 @@ ul.panel-menu li a:hover {
     border-radius: 50%;
     z-index: 2;
 }
+
 .steps-list li:after {
     content: "";
     height: 2px;
@@ -185,21 +212,27 @@ ul.panel-menu li a:hover {
     background-color: #ddd;
     z-index: 1;
 }
+
 .steps-list li:last-of-type:after {
     display: none;
 }
+
 .steps-list li.active {
     color: #e8c556;
 }
+
 .steps-list li.active:before {
     background-color: #e8c556;
 }
+
 .steps-list li.finish {
     color: #e8c556;
 }
+
 .steps-list li.finish:before {
     background-color: #e8c556;
 }
+
 .steps-list li.finish:after {
     background-color: #e8c556;
 }
@@ -217,13 +250,16 @@ ul.panel-menu li a:hover {
     text-transform: uppercase;
     white-space: nowrap;
 }
+
 .grey-button span {
     margin-left: 15px;
 }
+
 .grey-button.disabled {
     opacity: 0.4;
     cursor: not-allowed;
 }
+
 .grey-button span:before {
     content: "";
     position: absolute;
@@ -233,19 +269,23 @@ ul.panel-menu li a:hover {
     top: 5px;
     left: 38px;
 }
+
 .grey-button i {
     font-size: 16px;
 }
+
 .default-text {
     color: #9b9b9b;
     font-size: 14px;
     text-align: justify;
 }
+
 .steps-container {
-    margin-top: 50px;
+    margin-top: 15px;
     position: relative;
-    padding-left: 50px;
+    padding-left: 20px;
 }
+
 .steps-container:before {
     content: "";
     position: absolute;
@@ -255,49 +295,59 @@ ul.panel-menu li a:hover {
     top: 0;
     left: 0;
 }
+
 .steps-one {
     justify-content: space-between;
     flex-wrap: wrap;
     display: none;
 }
+
 .steps-one.active {
     display: flex;
 }
+
 .steps-one-left {
     width: 40%;
 }
+
 .steps-one-right {
     width: 60%;
     padding-left: 50px;
 }
+
 .grey-box {
     padding: 25px;
     border-radius: 4px;
     background: #fff;
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
 }
+
 .grey-box h5 {
     font-size: 15px;
     color: rgba(0, 0, 0, 0.5);
 }
+
 .grey-box h4 {
     font-size: 22px;
 }
+
 .grey-box p {
     font-size: 14px;
     color: #adadad;
     font-weight: 400;
 }
+
 .form-group {
     margin-bottom: 0;
 }
+
 .form-group label {
-    color: rgba(0, 0, 0, 0.3);
-    font-size: 14px;
-    text-transform: uppercase;
+    color: #003f5a;
+    font-size: 16px;
     margin-top: 10px;
-    font-weight: 600;
+    font-weight: 500;
 }
+
 .form-group input {
     padding: 5px 0;
     border: none;
@@ -306,15 +356,18 @@ ul.panel-menu li a:hover {
     font-size: 22px;
     background-color: transparent;
 }
+
 .form-group-inline {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-end;
 }
+
 .form-group-inline label {
     width: 23%;
     margin: 0;
 }
+
 .form-group-inline input {
     /*width: calc(100% - 150px); */
     padding: 0;
@@ -322,6 +375,7 @@ ul.panel-menu li a:hover {
     font-size: 16px;
     margin: 0 10px 0 6px;
 }
+
 .form-group-inline-change input {
     width: calc(100% - 96px);
     margin: 0 0px 0 6px;
@@ -335,6 +389,7 @@ ul.panel-menu li a:hover {
     position: relative;
     padding: 2px;
 }
+
 .process-bar-inner {
     position: absolute;
     height: 100%;
@@ -343,15 +398,18 @@ ul.panel-menu li a:hover {
     top: 0;
     border-radius: 50px;
 }
+
 .sub-heading {
     color: #8c8c8c;
     font-size: 16px;
 }
+
 .grey-box iframe {
     display: block;
     max-width: 100%;
     margin: 0 auto;
 }
+
 .edit-button {
     padding: 5px 10px;
 }
@@ -368,7 +426,8 @@ ul.panel-menu li a:hover {
     cursor: pointer;
     text-transform: uppercase;
 }
-.grey-button:hover{
+
+.grey-button:hover {
     background-color: #003f5a;
     color: #f8f7f7;
 }
@@ -376,6 +435,7 @@ ul.panel-menu li a:hover {
 .transparent-button i {
     margin-right: 5px;
 }
+
 .white-box {
     padding: 10px 15px 10px 15px;
     -webkit-box-shadow: 0px 0px 28px 0px rgba(0, 0, 0, 0.22);
@@ -385,6 +445,7 @@ ul.panel-menu li a:hover {
     position: relative;
     background-color: #ffffff;
 }
+
 .white-box-remove {
     position: absolute;
     right: 15px;
@@ -392,16 +453,20 @@ ul.panel-menu li a:hover {
     font-size: 20px;
     cursor: pointer;
 }
+
 .form-sub {
     padding: 0 48px 0 96px;
 }
+
 .form-sub-change {
     padding: 0 0 0 96px;
 }
+
 .form-group .bootstrap-select {
     width: calc(100% - 96px) !important;
     margin: 0 0px 0 6px;
 }
+
 .form-group .bootstrap-select button {
     border: none;
     border-bottom: rgba(0, 0, 0, 0.2) solid 1px;
@@ -413,12 +478,14 @@ ul.panel-menu li a:hover {
     padding: 0;
     box-shadow: none !important;
 }
+
 .bootstrap-select .dropdown-toggle:focus,
-.bootstrap-select > select.mobile-device:focus + .dropdown-toggle {
+.bootstrap-select>select.mobile-device:focus+.dropdown-toggle {
     outline: thin dotted #333 !important;
     outline: 0px auto -webkit-focus-ring-color !important;
     outline-offset: 0px;
 }
+
 .bootstrap-select .dropdown-item.active,
 .bootstrap-select .dropdown-item:active {
     color: #fff;
@@ -430,12 +497,14 @@ ul.panel-menu li a:hover {
 .form-group button.error {
     border-color: red !important;
 }
+
 .error-box {
     display: none;
     border-radius: 0;
     border: none;
     border-left: red solid 4px;
 }
+
 .custom-checkbox label {
     width: 40px;
     height: 18px;
@@ -446,9 +515,11 @@ ul.panel-menu li a:hover {
     cursor: pointer;
     transition: 0.15s background-color;
 }
+
 .custom-checkbox input {
     display: none;
 }
+
 .custom-checkbox label:before {
     content: "";
     position: absolute;
@@ -460,15 +531,19 @@ ul.panel-menu li a:hover {
     left: 2px;
     transition: 0.15s left;
 }
-.custom-checkbox input:checked ~ label {
+
+.custom-checkbox input:checked~label {
     background-color: #003f5a;
 }
-.custom-checkbox input:checked ~ label:before {
+
+.custom-checkbox input:checked~label:before {
     left: 24px;
 }
+
 .chanel-list {
     padding: 0;
 }
+
 .chanel-list li {
     list-style: none;
     display: flex;
@@ -477,9 +552,11 @@ ul.panel-menu li a:hover {
     border-bottom: #ddd solid 1px;
     align-items: center;
 }
+
 .chanel-list li:first-of-type {
     padding-top: 0;
 }
+
 .chanel-list li:last-of-type {
     padding-bottom: 0;
     border-bottom: none;
@@ -488,199 +565,255 @@ ul.panel-menu li a:hover {
 .mt-35 {
     margin-top: 10px;
 }
+
 .mb-35 {
     margin-bottom: 15px;
 }
+
 .mt-30 {
     margin-top: 20px;
 }
+
 .mb-30 {
     margin-bottom: 15px;
 }
+
 .mb-15 {
     margin-bottom: 15px;
 }
+
 .mt-5px {
     margin-top: 5px;
 }
+
 @media (max-width: 1200px) {
     .steps-one-left {
         margin-bottom: 50px;
     }
+
     .my-account span {
         font-size: 10px;
     }
+
     .steps-one-right {
         width: 100%;
         padding-left: 0;
     }
 }
+
 @media (max-width: 1023px) {
     .steps-list {
         margin: 0 -5% 0 0;
         overflow-x: auto;
     }
+
     .side-panel {
         flex-direction: row;
         width: 100%;
         height: 55px;
     }
+
     .logo {
         height: 55px;
         width: 75px;
     }
+
     .side-panel-top {
         display: flex;
         align-items: center;
     }
+
     .panel-menu {
         padding: 0;
         display: flex;
     }
+
     .panel-menu li {
         margin: 0;
     }
+
     .main-page {
         margin: 75px 0 0 0;
         padding: 5%;
     }
+
     .my-account {
         padding: 9px 10px;
         height: 55px;
         font-size: 12px;
     }
+
     .side-panel-bottom {
         width: 350px;
         left: 0px;
     }
+
     .my-account span {
         font-size: 14px;
         width: 89px;
     }
+
     .steps-container {
         margin-top: 40px;
         padding-left: 20px;
     }
+
     .panel-menu li a {
         font-size: 12px;
     }
+
     .steps-list {
         display: none;
     }
+
     .steps-container {
         margin-top: 0;
     }
+
     h3 {
         font-size: 20px;
     }
+
     .grey-button {
         font-size: 13px;
     }
+
     .grey-button i {
         font-size: 13px;
     }
+
     .grey-button span {
         margin-left: 20px;
     }
+
     .grey-button span:before {
         height: 23px;
         width: 2px;
         top: 6px;
         left: 41px;
     }
+
     .mb-35 {
         margin-bottom: 25px;
     }
+
     .mt-35 {
         margin-top: 25px;
     }
+
     .steps-one-left {
         margin-bottom: 25px;
     }
+
     .grey-box {
         background-color: #fff;
         padding: 15px;
         border-radius: 4px;
         margin-bottom: 15px;
     }
+
     .grey-box h5 {
         font-size: 13px;
     }
+
     .grey-box h4 {
         font-size: 16px;
     }
+
     .grey-box p {
         font-size: 14px;
     }
+
     .sm-mb-0 {
         margin-bottom: 0;
     }
+
     h4 {
         font-size: 18px;
     }
+
     .form-group input {
         font-size: 16px;
     }
+
     .form-group label {
         font-size: 14px;
     }
+
     .sub-heading {
         font-size: 14px;
     }
+
     .grey-box iframe {
         height: 150px;
     }
+
     .transparent-button {
         font-size: 12px;
         padding: 6px 15px;
     }
+
     .form-group-inline label {
         width: 100%;
     }
+
     .form-group-inline input {
         width: calc(100% - 57px);
         font-size: 14px;
         margin: 0 18px 0 6px;
     }
+
     .form-sub {
         padding: 0 48px 0 0px;
     }
+
     .form-group-inline-change input {
         width: 100%;
         margin: 0;
     }
+
     .form-group .bootstrap-select {
         width: 100% !important;
         margin: 0;
     }
+
     .sub-heading {
         font-size: 13px;
         padding: 0;
     }
+
     .mt-30 {
         margin-top: 25px;
     }
+
     .mb-30 {
         margin-bottom: 25px;
     }
+
     .form-group label {
         font-size: 13px;
     }
+
     .chanel-list li {
         padding: 8px 0;
     }
+
     .white-box {
         padding: 30px 15px;
     }
+
     .error-box {
         font-size: 12px;
     }
+
     .my-account i {
         font-size: 16px;
     }
+
     button.grey-button.float-left.back-button {
         float: left;
     }
+
     button.grey-button.float-left.mt-35.skip-button {
         float: left;
     }
@@ -692,37 +825,45 @@ ADD NEW CSS
 div .text-left h5 {
     display: none;
 }
+
 .work-daba button:hover {
     background-color: #003f5a;
     color: #fff;
     border-color: #003f5a;
 }
+
 .add-work .add-education:hover {
     background-color: #003f5a;
     color: #fff;
     border-color: #003f5a;
 }
+
 button.grey-button.float-left.mt-35.skip-button {
     float: left;
 }
-button.grey-button.float-left.back-button{
+
+button.grey-button.float-left.back-button {
     float: left;
 }
-.alert.alert-success.alert-dismissible.ww, .alert.alert-success.alert-dismissible.ew{
+
+.alert.alert-success.alert-dismissible.ww,
+.alert.alert-success.alert-dismissible.ew {
     display: none;
 }
-@media screen and (max-width: 767px) and (min-width: 500px)
-{
+
+@media screen and (max-width: 767px) and (min-width: 500px) {
     .steps-one-left {
         width: 70% !important;
         margin: auto !important;
     }
+
     .steps-one-right {
         width: 80%;
         margin: auto;
         margin-top: 25px;
     }
 }
+
 /*
 TOP NAVBAR CSS
 */
@@ -739,18 +880,22 @@ TOP NAVBAR CSS
     top: 0 !important;
     z-index: 1200 !important;
 }
+
 .nav-up div div a.navbar-brand {
     float: left !important;
     height: 63px !important;
     padding: 15px 15px !important;
     background-color: #fff !important;
 }
+
 .nav-up .container-fluid {
     padding: 0px 0px;
 }
+
 .nav-up .navbar-toggle .icon-bar {
     background-color: #000 !important;
 }
+
 .nav-up .navbar-toggle {
     border: none;
     background-color: #fff !important;
@@ -758,10 +903,12 @@ TOP NAVBAR CSS
     margin-right: 30px !important;
     margin-top: 17px !important;
 }
+
 .navbar-toggle:hover {
     background-color: #fff !important;
 }
-.nav-up .navbar-nav > .open > a {
+
+.nav-up .navbar-nav>.open>a {
     color: #fff !important;
     background-color: #094863 !important;
 }
@@ -769,6 +916,7 @@ TOP NAVBAR CSS
 ul.nav.navbar-nav.navbar-right li {
     padding: 6px 0px 5px 0px !important;
 }
+
 /* ul.nav.navbar-nav.navbar-right {
     height: 62px !important;
 } */
@@ -780,20 +928,26 @@ ul.nav.navbar-nav.navbar-right li {
     .nav-up div#myNavbar {
         margin: 0px;
         padding: 0px 0px 10px 0px;
-        width: 60% !important;;
-        float: right !important;;
+        width: 60% !important;
+        ;
+        float: right !important;
+        ;
     }
+
     .steps-one-left {
         width: 100%;
     }
 }
+
 @media screen and (max-width: 1023px) and (min-width: 300px) {
     .nav-up {
         display: block !important;
     }
+
     .side-panel {
         display: none !important;
     }
+
     /* .steps-list{
         display: block;
     }
@@ -808,15 +962,18 @@ ul.nav.navbar-nav.navbar-right li {
         background-color: #003f5a;
         margin: 0px;
     }
+
     .nav-up ul.nav.navbar-nav.panel-menu,
     ul.nav.navbar-nav.navbar-right {
         display: block;
         margin: 0px 0px;
     }
+
     .nav-up ul.nav li {
         text-align: center;
     }
-    .nav-dw{
+
+    .nav-dw {
         display: none;
     }
 }
@@ -825,6 +982,7 @@ ul.nav.navbar-nav.navbar-right li {
     .nav-up {
         display: none !important;
     }
+
     .side-panel {
         display: block !important;
     }
@@ -841,9 +999,11 @@ FOR EDUCATIONAL STEP
     cursor: pointer;
     opacity: 0.5;
 }
+
 select.form-control:not([size]):not([multiple]) {
     height: auto;
 }
+
 select#test {
     margin-left: 0px;
     width: 100%;
@@ -851,11 +1011,15 @@ select#test {
     float: left;
     padding: 7px;
     border-radius: 6px;
+    -webkit-appearance: menulist-button;
+    height: 35px;
 }
-select#test:focus{
+
+select#test:focus {
     outline: none;
     box-shadow: none
 }
+
 h5.sub-heading.text-center.mt-5px.mb-30.form-sub-change {
     display: none;
 }
@@ -863,7 +1027,7 @@ h5.sub-heading.text-center.mt-5px.mb-30.form-sub-change {
 /*
 Form/Card for WORK & EDUCATION
 */
-.des-form{
+.des-form {
     width: 100%;
     background-color: rgba(255, 255, 255, 1);
     padding: 20px;
@@ -871,8 +1035,8 @@ Form/Card for WORK & EDUCATION
     box-shadow: 0px 0px 28px 0px rgba(0, 0, 0, 0.22);
     margin-top: 20px;
 }
-.form-close
-{
+
+.form-close {
     text-align: right;
     top: -6px;
     position: relative;
@@ -882,15 +1046,18 @@ Form/Card for WORK & EDUCATION
     opacity: 0.4;
     z-index: 1100;
 }
-.form-close i:hover{
+
+.form-close i:hover {
     color: #001f2e;
-    font-size:15px;
+    font-size: 15px;
 }
-.fom{
+
+.fom {
     width: 95%;
     margin-top: -30px;
 }
-input#email{
+
+input#email {
     font-size: 14px;
     padding-left: 5px;
     border-bottom-color: #9E9E9E;
@@ -900,47 +1067,60 @@ input#email{
     border-bottom: rgba(0, 0, 0, 0.2) solid 1px;
     box-shadow: none;
 }
-input#email:focus{
+
+input#email:focus {
     box-shadow: none;
 }
+
 /*
 NAVBAR 2
 */
-nav.nav-dw{
+nav.nav-dw {
     margin-left: 160px;
     background-color: #fff;
-    position:relative;
-    top:-8px;
-    height:auto;
+    position: relative;
+    top: -8px;
+    height: auto;
     overflow: hidden;
     padding: 15px;
 }
-nav.nav-dw div div.navbar-header{
-    width:45%;
-    float:left;
-}
-nav.nav-dw div div.navbar-header img{
-    float:left;
-    margin: 5px 0px 0px 10px;
-    width:45px;
-    border-radius:50%;
-}
-nav.nav-dw div div.navbar-header2{
+
+nav.nav-dw div div.navbar-header {
+    width: 45%;
     float: left;
 }
 
-.navbar-header2 ul.nav.navbar-nav.navbar-right li{
+nav.nav-dw div div.navbar-header img {
+    float: left;
+    margin: 5px 0px 0px 10px;
+    width: 45px;
+    border-radius: 50%;
+}
+
+nav.nav-dw div div.navbar-header2 {
+    float: left;
+}
+
+.navbar-header2 ul.nav.navbar-nav.navbar-right li {
     list-style: none;
     display: list-item;
     float: left;
     color: #fff;
     padding: 10px 20px !important;
 }
-.navbar-header2 ul.nav.navbar-nav.navbar-right a{
+
+.navbar-header2 ul.nav.navbar-nav.navbar-right a {
     padding-top: 7px !important;
     padding-bottom: 7px;
 }
-.navbar-header2 ul.nav.navbar-nav.navbar-right a:hover{
+
+.navbar-header2 ul.nav.navbar-nav.navbar-right a:hover {
     background-color: #003f5a;
     color: #f8f7f7;
+}
+
+.label-class {
+    font-size: 15px;
+    margin-bottom: 0px;
+    font-weight: 500;
 }
