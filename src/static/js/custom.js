@@ -1,4 +1,12 @@
 $(document).ready(function () {
+
+  function activatePlacesSearch1() {
+    var input = document.getElementsByClassName('location_search');
+    for (i = 0; i < input.length; i++) {
+      autocomplete = new google.maps.places.Autocomplete(input[i]);
+    }
+  }
+
   $(".login-button").click(function (e) {
     e.preventDefault();
   });
@@ -7,8 +15,13 @@ $(document).ready(function () {
   $("#add-work").click(function (e) {
     e.preventDefault();
     $(".work-container").prepend(
+<<<<<<< HEAD
       '<div class="des-form work-box white-boxs"><div class="form-close white-box-remove" style="float: right;"><i class="fas fa-times"></i></div><div class="fom"><div class="form-group" style="margin-bottom: 0px"><label>Company</label><div class=""><input type="text" data-name="company information" class="form-control" id="email" placeholder="Write here..."></div></div><div class="form-group" style="margin-bottom: 0px"><label>Location</label><div class=""><input type="text" data-name="location" class="form-control" id="email" placeholder="Write here..."></div></div></div></div>'
+=======
+      '<div class="des-form work-box white-boxs"><div class="form-close white-box-remove"><i class="fas fa-times"></i></div><div class="fom"><div class="form-group" style="margin-bottom: 0px"><label>Company</label><div class=""><input type="text" data-name="company information" class="form-control" id="email" placeholder="Write here..."></div></div><div class="form-group" style="margin-bottom: 0px"><label>Location</label><div class=""><input type="text" data-name="location" class="form-control input-css location_search" placeholder="Write here..."></div></div></div></div>'
+>>>>>>> 2cdcb5a15582749e113322d83a7ab032269be05a
     );
+    activatePlacesSearch1();
   });
 
   // add education
