@@ -1,0 +1,169 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta name="description" content="Dealers ">
+    <meta name="keywords" content="Dealers">
+    <meta property="og:site_name" content="Frolleague">
+    <meta property="og:title" content="Frolleague">
+    <meta property="og:description" content="Frolleague">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="">
+    <meta property="og:type" content="website">
+    <title>Frolleague | Profile</title>
+
+    <link
+      href="{% static 'images/favicon.png' %}"
+      rel="icon"
+      type="image/png"
+    />
+
+    <!-- Bootstrap Css file -->
+    <!-- <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" /> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!-- font file -->
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <!-- Basic css File -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+    <!-- Jquery Js File -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script type="text/javascript"> window.CSRF_TOKEN = "{{ csrf_token }}"; </script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    {% csrf_token %}
+
+    <nav class="navbar navbar-inverse nav-up">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>                        
+                </button>
+                    
+                <a class="navbar-brand" href="">
+                    <img src="{% static 'images/landing_logo.png' %}" alt="logo" width="155px" style="margin: -4px 0px 0px 10px;">
+                </a>
+            </div>
+            
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav panel-menu">
+                    <li class="actives">
+                        <a href="/dashboard/" class="dashboard-link" data-step="1">Dashboard</a>
+                    </li>
+                    <li><a href="#" class="dashboard-link" data-step="6">Channels</a></li>
+                    <li><a href="#" class="dashboard-link" data-step="4">Work</a></li>
+                    <li><a href="#" class="dashboard-link" data-step="5">Education</a></li>
+                    <li><a href="#" class="dashboard-link" data-step="2">Refresh</a></li>
+                </ul>
+            
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/profile/" style="margin-top: 0px;">
+                            <span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Profile
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" style="margin-top: 0px;">
+                            <span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+<div class="side-panel">
+
+    <div class="side-panel-top">
+        <div class="logo">
+            <a href="#"><img src="{% static 'images/landing_logo.png' %}"/></a>
+        </div>
+
+        <ul class="panel-menu">
+            <li>
+                <a href="/dashboard/" class="dashboard-link" data-step="1">Dashboard</a>
+            </li>
+            <li>
+                <a href="#" class="dashboard-link" data-step="6">Channels</a>
+            </li>
+            <li>
+                <a href="#" class="dashboard-link" data-step="4">Work</a>
+            </li>
+            <li>
+                <a href="#" class="dashboard-link" data-step="5">Education</a>
+            </li>
+            <li>
+                <a href="#" class="dashboard-link" data-step="2">Refresh</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="side-panel-bottom dropdown"style="width: 100%;position: absolute;bottom: 0px !important;">
+        <a href="#" class="my-account dropbtn">
+           <i class="fas fa-user"></i><span>My Account</span>
+        </a>
+        <div class="dropdown-content">
+            <a href="/profile/">Profile</a>
+            <a href="#">Logout</a>
+        </div>
+    </div>
+
+</div>
+
+<div class="main-page">
+    <div class="main-page-inner">
+        
+        <!-- <form id="linkedin-form"> -->
+            <div class="steps-container">
+                <h1>PROFILE PAGE</h1>
+                <div class="steps-one active" data-step="1">
+                    <div class="steps-one-right">
+                        <div class="row mb-30 sm-mb-0">
+                            <div class="col-md-6">
+                                <div class="grey-box">
+                                    <h5>Your Class</h5>
+                                    <h4>Bard</h4>
+                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="grey-box">
+                                    <h5>Your Class</h5>
+                                    <h4>Bard</h4>
+                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="grey-box">
+                                    <h5>Your Class</h5>
+                                    <h4>Bard</h4>
+                                    <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>               
+            </div>
+        <!-- </form> -->
+
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
+<script src="{% static 'js/custom.js' %}"></script>
+
+</body>
+</html>
