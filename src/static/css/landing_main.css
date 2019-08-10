@@ -25,7 +25,7 @@ body {
 .banner_text h2 {
     float: left;
     color: #383c47;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .banner_text p {
@@ -104,7 +104,7 @@ li.nav-item:hover {
 
 .about h2 {
     color: #383c47;
-    font-size: 23px;
+    font-size: 20px;
 }
 
 .about p {
@@ -311,27 +311,27 @@ padding-right:0px !important;
     }
 
     .banner_text p {
-        font-size: 21px;
-        line-height: 35px;
+        font-size: 16px;
+        line-height: 25px;
     }
 
     .banner_text a {
-        font-size: 20px;
+        font-size: 16px;
     }
 
     .story h3 {
         color: #003f5a;
-        font-size: 30px;
+        font-size: 25px;
     }
 
     .story p {
-        font-size: 21px;
-        line-height: 33px;
+        font-size: 16px;
+        line-height: 25px;
     }
 
     .about p {
-        line-height: 34px;
-        font-size: 21px;
+        font-size: 16px;
+        line-height: 25px;
     }
 
     .about h5 {
@@ -341,7 +341,7 @@ padding-right:0px !important;
 
     .about h3 {
         color: #003f5a;
-        font-size: 30px;
+        font-size: 25px;
     }
 
     .site a {
@@ -358,7 +358,7 @@ padding-right:0px !important;
         float: left;
         padding: 0 19px 0 0;
         color: #fff;
-        font-size: 29px;
+        font-size: 25px;
         letter-spacing: 0.5px;
     }
 
@@ -375,7 +375,7 @@ padding-right:0px !important;
 
     .footer_botm p {
         margin: 0;
-        font-size: 20px;
+        font-size: 16px;
     }
 }
 
